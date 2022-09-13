@@ -2638,6 +2638,13 @@ input[type="radio"]+label:before {
 	width: 100%;
 }
 
+img.portrait {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
 /* List */
 
 ol {
@@ -3299,23 +3306,6 @@ ul.feature-icons li img {
 	padding-right: 1rem;
 }
 
-/* ul.feature-icons li:before {
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 512 512'%3E%3Cpath d='M256,0l221.7,128v256L256,512L34.3,384V128L256,0z' fill='rgba(144, 144, 144, 0.1)' /%3E%3C/svg%3E");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	color: #000000;
-	display: block;
-	font-size: 1.25rem;
-	height: 3.25rem;
-	left: 0;
-	line-height: 3.25rem;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	width: 3.25rem;
-} */
-
 ul.feature-icons li:nth-child(1),
 ul.feature-icons li:nth-child(2) {
 	margin-top: 0;
@@ -3376,11 +3366,15 @@ ul.feature-icons li:nth-child(2) {
 #wrapper section>header {
 	grid-area: header;
 	justify-self: end;
-	text-align: left;
+	text-align: center;
 }
 
 #wrapper section>header h2 {
 	margin: 0 0 5rem 0;
+}
+
+#wrapper section>header h3 {
+	margin: 0rem 0 2rem 0;
 }
 
 #wrapper section>header h1+p {
