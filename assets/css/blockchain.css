@@ -43,6 +43,11 @@ a {
   font-weight: bold;
 }
 
+li {
+  list-style-type: '👉';
+  padding-inline-start: 5px;
+}
+
 .flex {
   display: flex;
 }
@@ -112,6 +117,10 @@ a {
 }
 
 @media screen and (max-width: 575px) {
+  .title {
+    font-size: 2em;
+  }
+
   .flex.double {
     flex-direction: column; /* Cambia la dirección del contenedor flex a columna */
   }
