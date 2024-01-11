@@ -1,18 +1,9 @@
 @import url(fontawesome-all.min.css);
 
 @font-face {
-	font-family: 'space_grotesk_regular';
-	src:
-		url('../webfonts/SpaceGrotesk-Regular.otf') format('opentype'),
-		url('../webfonts/SpaceGrotesk-Regular.ttf') format('ttf'),
-		url('../webfonts/SpaceGrotesk-Regular.woff2') format('woff2');
-}
-
-@font-face {
-	font-family: 'space_mono_regular';
-	src:
-		url('../webfonts/SpaceMono-Regular.ttf') format('ttf'),
-		url('../webfonts/SpaceMono-Regular.woff2') format('woff2');
+  font-family: 'space_grotesk';
+  src:
+    url('../webfonts/SpaceGrotesk-VF.ttf') format('truetype-variations'),
 }
 
 /*
@@ -23,7 +14,7 @@
 */
 
 html {
-	--main-font: 'space_grotesk_regular';
+	--main-font: 'space_grotesk';
 	--background: #FBF7F5;
 	--accent-color-two-one: #AFCDBC;
 	--accent-color-two: #FAE3A9;
