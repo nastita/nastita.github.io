@@ -11,8 +11,8 @@ html {
   --text-color: #222;
 	--accent-color-one: #BFEDD0;
 	--accent-color-two: #F9CCB4;
-	--accent-color-three: #C5AAB9;
-	--accent-color-four: #DFBFB9;
+	--accent-color-three: #DFBFB9;
+	--accent-color-four: #C5AAB9;
 	--accent-color-cta: #FF5722;
 }
 
@@ -114,6 +114,10 @@ li {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .tall {
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 575px) {
@@ -123,5 +127,9 @@ li {
 
   .flex.double {
     flex-direction: column; /* Cambia la dirección del contenedor flex a columna */
+  }
+
+  .tall {
+    height: 210px;
   }
 }
