@@ -13,7 +13,7 @@ html {
 	--accent-color-two: #F9CCB4;
 	--accent-color-three: #DFBFB9;
 	--accent-color-four: #C5AAB9;
-	--accent-color-cta: #FF5722;
+	--accent-color-five: #AAACC5;
 }
 
 body {
@@ -97,9 +97,9 @@ li {
   --block-accent-color: var(--accent-color-four);
 }
 
-.theme-cta {
+.theme-5 {
   /* --block-text-color: #FFF; */
-  --block-accent-color: var(--accent-color-cta);
+  --block-accent-color: var(--accent-color-five);
 }
 
 @media screen and (max-width: 991px) {
