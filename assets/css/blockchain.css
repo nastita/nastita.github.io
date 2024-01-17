@@ -81,6 +81,10 @@ li {
   text-align: center;
 }
 
+.bold {
+  font-variation-settings: 'wght' 800;
+}
+
 .theme-1 {
   --block-accent-color: var(--accent-color-one);
 }
