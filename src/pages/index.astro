@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import WorkExperience from '../components/WorkExperience.astro';
+import Skills from '../components/Skills.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Eduardo Sacco - Senior Software Engineer">
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <WorkExperience />
+    <Skills />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Intersection Observer for fade-up animations
+  const fadeElements = document.querySelectorAll('.fade-up');
+
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  fadeElements.forEach((element) => {
+    fadeObserver.observe(element);
+  });
+</script>

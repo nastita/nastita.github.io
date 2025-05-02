@@ -1,0 +1,68 @@
+---
+---
+
+<section
+  id="home"
+  class="h-screen flex items-center justify-center text-center px-6 bg-base-100"
+>
+  <div class="max-w-3xl mx-auto">
+    <div class="fade-up mb-8">
+      <div class="w-40 h-40 mx-auto rounded-full overflow-hidden">
+        <img
+          src="/images/ed.png"
+          alt="Eduardo Sacco"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+    <h1
+      class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 fade-up text-base-content"
+    >
+      Eduardo Sacco
+    </h1>
+    <p
+      class="text-xl md:text-2xl text-base-content/70 mb-6 fade-up stagger-1"
+    >
+      Senior Software Engineer
+    </p>
+    <p class="text-lg mb-8 fade-up stagger-2 text-base-content/80">
+      I create robust and innovative software solutions<br />with a focus on
+      web and blockchain technologies.
+    </p>
+    <div class="fade-up stagger-3">
+      <a
+        href="#contact"
+        class="btn btn-primary btn-lg"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 text-2xl animate-bounce"
+  >
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for fade-up animations
+  const fadeElements = document.querySelectorAll('.fade-up');
+
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  fadeElements.forEach((element) => {
+    fadeObserver.observe(element);
+  });
+</script>
