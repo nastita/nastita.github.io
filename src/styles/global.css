@@ -2,159 +2,89 @@
 @tailwind utilities;
 @plugin "daisyui";
 
-@plugin "daisyui/theme" {
-  name: "Thread";
-  default: true;
-  prefersdark: true;
-  color-scheme: dark;
+@layer base {
+  @font-face {
+    font-family: 'Monument Sans';
+    src: url('/fonts/PPMonumentExtended-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
-  /* Base colors */
-  --color-base-100: #1D1D1D;
-  /* Thread dark background */
-  --color-base-200: #2A2A2A;
-  /* Slightly lighter dark */
-  --color-base-300: #333333;
-  /* Dark gray */
-  --color-base-content: #FFFFFF;
-  /* Pure white text */
+  @font-face {
+    font-family: 'Monument Sans';
+    src: url('/fonts/PPMonumentExtended-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
 
-  /* Primary colors - Thread Orange */
-  --color-primary: #FF620C;
-  /* Thread orange */
-  --color-primary-content: oklch(100% 0 0);
-  /* White text on primary */
+  @font-face {
+    font-family: 'Monument Sans';
+    src: url('/fonts/PPMonumentExtended-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
 
-  /* Secondary colors */
-  --color-secondary: oklch(70% 0.25 31.68);
-  /* Lighter orange */
-  --color-secondary-content: oklch(100% 0 0);
-  /* White text */
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk-VF.ttf') format('truetype-variations');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+  }
 
-  /* Accent colors */
-  --color-accent: oklch(55% 0.25 31.68);
-  /* Darker orange */
-  --color-accent-content: oklch(100% 0 0);
-  /* White text */
+  :root {
+    --font-heading: 'Monument Sans', system-ui, sans-serif;
+    --font-body: 'Space Grotesk', system-ui, sans-serif;
+  }
 
-  /* Neutral colors */
-  --color-neutral: oklch(20% 0 0);
-  /* Dark gray */
-  --color-neutral-content: oklch(100% 0 0);
-  /* White text */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
 
-  /* State colors */
-  --color-info: oklch(70% 0.2 220);
-  /* Blue */
-  --color-info-content: oklch(100% 0 0);
-  /* White text */
-  --color-success: oklch(65% 0.25 140);
-  /* Green */
-  --color-success-content: oklch(100% 0 0);
-  /* White text */
-  --color-warning: oklch(80% 0.25 80);
-  /* Yellow */
-  --color-warning-content: oklch(0% 0 0);
-  /* Black text */
-  --color-error: oklch(65% 0.3 30);
-  /* Red */
-  --color-error-content: oklch(100% 0 0);
-  /* White text */
-
-  /* Border radius */
-  --radius-selector: 1rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.5rem;
-
-  /* Base sizes */
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-
-  /* Border size */
-  --border: 1px;
-
-  /* Effects */
-  --depth: 1;
-  --noise: 0;
+  body {
+    font-family: var(--font-body);
+  }
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .fade-up.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .stagger-1 {
-    transition-delay: 0.1s;
-  }
-
-  .stagger-2 {
-    transition-delay: 0.2s;
-  }
-
-  .stagger-3 {
-    transition-delay: 0.3s;
-  }
-
-  .stagger-4 {
-    transition-delay: 0.4s;
-  }
-
-  @keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-
-    40% {
-      transform: translateY(-20px);
-    }
-
-    60% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .link-underline {
-    position: relative;
-  }
-
-  .link-underline:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background-color: currentColor;
-    transform-origin: bottom right;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .link-underline:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  .hover-lift {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-8px);
-  }
+@plugin "daisyui/theme" {
+  name: "noice";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(14% 0 0);
+  --color-base-200: oklch(20% 0 0);
+  --color-base-300: oklch(26% 0 0);
+  --color-base-content: oklch(97% 0 0);
+  --color-primary: oklch(76% 0.177 163.223);
+  --color-primary-content: oklch(26% 0.051 172.552);
+  --color-secondary: oklch(67% 0.182 276.935);
+  --color-secondary-content: oklch(25% 0.09 281.288);
+  --color-accent: oklch(85% 0.199 91.936);
+  --color-accent-content: oklch(28% 0.066 53.813);
+  --color-neutral: oklch(20% 0 0);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(77% 0.152 181.912);
+  --color-success-content: oklch(27% 0.046 192.524);
+  --color-warning: oklch(75% 0.183 55.934);
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: oklch(70% 0.191 22.216);
+  --color-error-content: oklch(25% 0.092 26.042);
+  --radius-selector: 0.25rem;
+  --radius-field: 2rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
 }
