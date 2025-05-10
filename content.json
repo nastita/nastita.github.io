@@ -57,41 +57,108 @@
       "companyDescription": "Southworks is a global software development partner that brings dev-intensity to different organizations, delivering quick strategic wins to help accelerate, grow, and scale. They have big name clients such as: Microsoft, AWS."
     }
   ],
-  "skills": {
-    "Cloud Providers": [
-      "Amazon Web Services",
-      "Microsoft Azure"
-    ],
-    "Programming Languages and Frameworks": [
-      "C",
-      "C++",
-      "C#",
-      ".NET and .NET Core",
-      "Javascript",
-      "Typescript",
-      "Node js",
-      "Go",
-      "React",
-      "Express",
-      "Nest js"
-    ],
-    "Databases and Memory": [
-      "SQL",
-      "Postgres",
-      "Redis",
-      "My SQL",
-      "SQL Server",
-      "Mongo DB",
-      "Dynamo DB",
-      "Cosmos DB"
-    ],
-    "Testing Frameworks": [
-      "n unit",
-      "x unit",
-      "Jest",
-      "Mocha"
-    ]
-  },
+  "technologies": [
+    {
+      "name": "Amazon Web Services",
+      "image": "/images/technologies/aws.svg"
+    },
+    {
+      "name": "Microsoft Azure",
+      "image": "/images/technologies/azure.svg"
+    },
+    {
+      "name": "C",
+      "image": "/images/technologies/c.png"
+    },
+    {
+      "name": "C++",
+      "image": "/images/technologies/c++.png"
+    },
+    {
+      "name": "C#",
+      "image": "/images/technologies/c-sharp.svg"
+    },
+    {
+      "name": ".NET and .NET Core",
+      "image": "/images/technologies/dotnet-core.svg"
+    },
+    {
+      "name": "Javascript",
+      "image": "/images/technologies/js.svg"
+    },
+    {
+      "name": "Typescript",
+      "image": "/images/technologies/ts.svg"
+    },
+    {
+      "name": "Node js",
+      "image": "/images/technologies/node.svg"
+    },
+    {
+      "name": "Go",
+      "image": "/images/technologies/go.svg"
+    },
+    {
+      "name": "React",
+      "image": "/images/technologies/react.svg"
+    },
+    {
+      "name": "Express",
+      "image": "/images/technologies/expressjs.svg"
+    },
+    {
+      "name": "Nest js",
+      "image": "/images/technologies/nestjs.svg"
+    },
+    {
+      "name": "SQL",
+      "image": "/images/technologies/sql.svg"
+    },
+    {
+      "name": "Postgres",
+      "image": "/images/technologies/postgresql.svg"
+    },
+    {
+      "name": "Redis",
+      "image": "/images/technologies/redis.svg"
+    },
+    {
+      "name": "My SQL",
+      "image": "/images/technologies/mysql.svg"
+    },
+    {
+      "name": "SQL Server",
+      "image": "/images/technologies/sqlserver.svg"
+    },
+    {
+      "name": "Mongo DB",
+      "image": "/images/technologies/mongodb.svg"
+    },
+    {
+      "name": "Dynamo DB",
+      "image": "/images/technologies/dynamodb.svg"
+    },
+    {
+      "name": "Cosmos DB",
+      "image": "/images/technologies/cosmosdb.svg"
+    },
+    {
+      "name": "n unit",
+      "image": "/images/technologies/nunit.svg"
+    },
+    {
+      "name": "x unit",
+      "image": "/images/technologies/xunit.svg"
+    },
+    {
+      "name": "Jest",
+      "image": "/images/technologies/jest.svg"
+    },
+    {
+      "name": "Mocha",
+      "image": "/images/technologies/mocha.svg"
+    }
+  ],
   "education": [
     {
       "institution": "Buenos Aires Institute of Technology",
