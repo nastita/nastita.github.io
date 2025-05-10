@@ -7,7 +7,7 @@
     <div id='nav-container' class='relative z-[110]'>
       <button
         id='menu-toggle'
-        class='btn btn-primary font-monument-mono gap-2 relative z-[120]'
+        class='btn btn-primary uppercase gap-2 relative z-[120]'
         aria-label='Toggle navigation'
         aria-expanded='false'
       >
@@ -32,34 +32,37 @@
       <!-- Navigation Overlay -->
       <div
         id='nav-overlay'
-        class='absolute w-80 h-auto bg-neutral rounded-3xl -top-2 -right-2 shadow-lg z-[115]'
+        class='absolute w-64 h-auto bg-neutral rounded-3xl -top-2 -right-2 shadow-lg z-[115] origin-top-right'
       >
-        <nav id='nav-menu' class='menu menu-lg w-full gap-2 px-6 pt-20 pb-8'>
+        <nav
+          id='nav-menu'
+          class='menu menu-lg w-full gap-2 px-6 pt-20 pb-8 text-right'
+        >
           <div class='overflow-hidden'>
             <a
               href='#home'
-              class='menu-item text-4xl font-medium tracking-tight nav-link hover:text-primary text-neutral-content'
+              class='menu-item text-5xl font-monument nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
               >HOME</a
             >
           </div>
           <div class='overflow-hidden'>
             <a
               href='#about'
-              class='menu-item text-4xl font-medium tracking-tight nav-link hover:text-primary text-neutral-content'
+              class='menu-item text-5xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
               >ABOUT</a
             >
           </div>
           <div class='overflow-hidden'>
             <a
               href='#work'
-              class='menu-item text-4xl font-medium tracking-tight nav-link hover:text-primary text-neutral-content'
+              class='menu-item text-5xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
               >WORK</a
             >
           </div>
           <div class='overflow-hidden'>
             <a
               href='#skills'
-              class='menu-item text-4xl font-medium tracking-tight nav-link hover:text-primary text-neutral-content'
+              class='menu-item text-5xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
               >SKILLS</a
             >
           </div>
@@ -130,11 +133,14 @@
     opacity: 0,
     pointerEvents: 'none',
     scale: 0.95,
+    transformOrigin: 'top right',
   });
 
   gsap.set(navLinks, {
     opacity: 0,
-    y: 20,
+    x: 50,
+    y: -50,
+    transformOrigin: 'top right',
   });
 
   // Toggle menu function
@@ -171,18 +177,26 @@
             opacity: 1,
             scale: 1,
             pointerEvents: 'auto',
-            duration: 0.3,
-            ease: 'power2.out',
+            duration: 0.15,
+            ease: 'power3.out',
           },
           '<'
         )
-        .to(navLinks, {
-          opacity: 1,
-          y: 0,
-          stagger: 0.05,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
+        .to(
+          navLinks,
+          {
+            opacity: 1,
+            x: -50,
+            y: 50,
+            stagger: {
+              each: 0.04,
+              from: 'start',
+            },
+            duration: 0.15,
+            ease: 'power2.out',
+          },
+          '-=0.05'
+        );
 
       // Keep scroll enabled when menu is open
     } else {
@@ -212,19 +226,27 @@
           navLinks,
           {
             opacity: 0,
-            y: 20,
-            stagger: 0.03,
+            x: 50,
+            y: -50,
+            stagger: {
+              each: 0.03,
+              from: 'end',
+            },
             duration: 0.2,
           },
           '<'
         )
-        .to(navOverlay, {
-          opacity: 0,
-          scale: 0.95,
-          pointerEvents: 'none',
-          duration: 0.3,
-          ease: 'power2.in',
-        });
+        .to(
+          navOverlay,
+          {
+            opacity: 0,
+            scale: 0.95,
+            pointerEvents: 'none',
+            duration: 0.2,
+            ease: 'power3.in',
+          },
+          '-=0.1'
+        );
 
       // Keep scroll enabled when menu is closed
     }
