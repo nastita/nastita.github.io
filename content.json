@@ -104,7 +104,7 @@
     },
     {
       "name": "Express",
-      "image": "/images/technologies/expressjs.svg"
+      "image": "/images/technologies/expressjs.png"
     },
     {
       "name": "Nest js",
@@ -116,7 +116,7 @@
     },
     {
       "name": "Postgres",
-      "image": "/images/technologies/postgresql.svg"
+      "image": "/images/technologies/postgres.svg"
     },
     {
       "name": "Redis",
@@ -128,7 +128,7 @@
     },
     {
       "name": "SQL Server",
-      "image": "/images/technologies/sqlserver.svg"
+      "image": "/images/technologies/microsoft-sql-server.svg"
     },
     {
       "name": "Mongo DB",
@@ -140,7 +140,7 @@
     },
     {
       "name": "Cosmos DB",
-      "image": "/images/technologies/cosmosdb.svg"
+      "image": "/images/technologies/cosmosdb.png"
     },
     {
       "name": "n unit",
@@ -152,7 +152,7 @@
     },
     {
       "name": "Jest",
-      "image": "/images/technologies/jest.svg"
+      "image": "/images/technologies/jest.png"
     },
     {
       "name": "Mocha",
@@ -178,54 +178,63 @@
   "testimonials": [
     {
       "name": "Tomás Soracco",
+      "image": "/images/individuals/tomso.jpeg",
       "position": "Co-founder at POAP - The Proof of Attendance Protocol",
       "relationship": "September 24, 2022, Tomás was senior to Eduardo but didn't manage Eduardo directly",
       "content": "I had a very good experience working with Edu. He was always very interested in learning not only about the product but the entire ecosystem and implementing best practices. Beyond the professional, he developed a great bond with the team and always proved to be an excellent person. I would recommend Eduardo to any organization looking for a committed professional with experience in various areas and a desire to grow."
     },
     {
       "name": "Agustin Lavarello",
+      "image": "/images/individuals/agustincito.jpeg",
       "position": "Technical Lead at POAP - The Proof of Attendance Protocol",
       "relationship": "September 20, 2022, Agustin managed Eduardo directly",
       "content": "Eduardo is a great developer and an outstanding professional. He is a great teammate, always willing to help others. He is very proactive and efficient, not only does he think for the best solution to the problem but also how to optimize processes to empower his coworkers. It was a pleasure working with him and learning from him."
     },
     {
       "name": "Ignacio Grayeb",
+      "image": "/images/individuals/nacho.jpeg",
       "position": "Software Engineering Team Lead at POAP - The Proof of Attendance Protocol",
       "relationship": "September 3, 2022, Ignacio worked with Eduardo but on different teams",
       "content": "Eduardo is an outstanding professional, with great knowledge and capacity to adapt to fast-paced changes. He is a true team worker and problem solver and has the ability of quickly learning new technologies and excelling at them."
     },
     {
       "name": "Ignacio Nicolás Negro Caino",
+      "image": "/images/individuals/negrocaino.jpeg",
       "position": "Software Engineer at POAP - The Proof of Attendance Protocol",
       "relationship": "September 3, 2022, Ignacio Nicolás worked with Eduardo on the same team",
       "content": "Eduardo is one of the greatest person I'd had the pleasure to work with, He's professional, great partner and versatile. He is one of those people which you can give him an unknown problem and he will eventually find an optimal and efficient solution to it. Also he performs well communication ideas and arguing about them with the team."
     },
     {
       "name": "Mathieu Tremblay",
+      "image": "/images/individuals/mathieu.jpeg",
       "position": "Entrepreneur at POAP - The Proof of Attendance Protocol",
       "relationship": "September 1, 2022, Mathieu worked with Eduardo but on different teams",
       "content": "In addition to being a good developer, Eduardo has a great personality that makes him a great teammate. He was also committed to the success of the business, made sure everybody was feeling awesome (he took very good care of us when we visited in Argentina) and was a positive contributor at all times."
     },
     {
       "name": "Elijah Gay",
+      "image": "/images/individuals/elijah.jpeg",
       "position": "Team Lead at Kin+Carta",
       "relationship": "November 4, 2021, Elijah managed Eduardo directly",
       "content": "Eduardo is a hard-working, intelligent developer. In my time working with him, our team faced great technical challenges, and Eduardo eagerly pursued them - and completed them as well! His code is clean and easy to read. He keeps a positive attitude and has built up strong working relationships with his co-workers, even when distance and time zones could have raised issues. I would happily work with Eduardo again."
     },
     {
       "name": "Annie Moy, CSPO",
+      "image": "/images/individuals/annie.jpeg",
       "position": "Consultant, Product Strategy at Kin + Carta",
       "relationship": "November 4, 2021, Annie worked with Eduardo on the same team",
       "content": "Eduardo is extremely knowledgeable and skilled in his craft. As the Product Owner on our fairly complex project, I found that he is able to quickly understand the problem we are trying to solve and asks thoughtful, detailed questions to ensure that the best solution is implemented. Ed is extremely detail-oriented and meticulous with his code. He is also a wonderful team player, always willing to step up and assist a junior developer or pair to get someone unstuck. He has great communication skills for all levels of the business, whether it is with someone technical like himself, someone middle-ground like me, or someone not very technical like the client. He is always able to explain in a way that is on the other person's level."
     },
     {
       "name": "Charlotte Wilson",
+      "image": "/images/individuals/charlotte.jpeg",
       "position": "Certified Scrum Master at Kin + Carta",
       "relationship": "October 22, 2021, Charlotte worked with Eduardo on the same team",
       "content": "Eduardo is one of the hardest working, dedicated BE developers that I have come to know. I have had the pleasure of working with Eduardo as his Scrum Master and I am continually impressed with his knowledge and support to get the job done. One project that we have been working on in particular Eduardo is able to perform at the velocity of 2 or 3 developers combined. Eduardo also has great communication skills when advising a viable solution to the client. Eduardo is the true glue that holds the team together and is a true expert in his field."
     },
     {
       "name": "James Nitz",
+      "image": "/images/individuals/james.jpeg",
       "position": "Software Developer",
       "relationship": "September 29, 2021, James worked with Eduardo on the same team.",
       "content": "Eduardo is a great developer and teammate. He was always willing to pivot to help another team member or take any other high priority task and worked diligently to meet deadlines. He helped spearhead a stronger focus on testing to improve the codebase and also helped to train new team members."
