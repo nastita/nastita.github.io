@@ -79,6 +79,21 @@
   }
 }
 
+@layer utilities {
+  .font-monument {
+    font-family: var(--font-heading);
+  }
+
+  .font-space {
+    font-family: var(--font-body);
+  }
+
+  .font-mono {
+    font-family: var(--font-button);
+  }
+}
+
+
 @plugin "daisyui/theme" {
   name: "noice";
   default: true;
@@ -112,8 +127,4 @@
   --border: 1px;
   --depth: 1;
   --noise: 1;
-
-  --font-monument: 'Monument Sans', system-ui, sans-serif;
-  --font-space: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Space Mono', monospace;
 }
