@@ -1,3 +1,14 @@
+---
+const menuItems = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Exp', href: '#work' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Kudos', href: '#testimonials' },
+  { name: 'Contact', href: '#contact' },
+];
+---
+
 <header
   id='header'
   class='fixed top-0 left-0 w-full z-[100] bg-base-100/50 backdrop-blur-sm'
@@ -36,36 +47,18 @@
       >
         <nav
           id='nav-menu'
-          class='menu menu-lg w-full gap-2 px-6 pt-20 pb-8 text-right'
+          class='menu menu-xl w-full gap-2 px-6 pt-20 pb-8 text-right'
         >
-          <div class='overflow-hidden'>
-            <a
-              href='#home'
-              class='menu-item text-5xl font-monument nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
-              >HOME</a
-            >
-          </div>
-          <div class='overflow-hidden'>
-            <a
-              href='#about'
-              class='menu-item text-5xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
-              >ABOUT</a
-            >
-          </div>
-          <div class='overflow-hidden'>
-            <a
-              href='#work'
-              class='menu-item text-5xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
-              >WORK</a
-            >
-          </div>
-          <div class='overflow-hidden'>
-            <a
-              href='#skills'
-              class='menu-item text-5xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content -translate-x-full translate-y-full opacity-0'
-              >SKILLS</a
-            >
-          </div>
+          {
+            menuItems.map((item) => (
+              <a
+                href={item.href}
+                class='menu-item uppercase text-3xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content'
+              >
+                {item.name}
+              </a>
+            ))
+          }
         </nav>
       </div>
     </div>
@@ -83,9 +76,9 @@
   let lastScrollTop = 0;
 
   ScrollTrigger.create({
+    id: 'header-scroll',
     start: 'top top',
-    end: 'bottom bottom',
-    markers: true,
+    end: '+=9999',
     onUpdate: (self) => {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -97,14 +90,16 @@
           gsap.to(header, {
             y: -100,
             duration: 0.3,
-            ease: 'power2.out',
+            ease: 'linear',
+            overwrite: 'auto',
           });
         } else {
           // Scrolling up or at top
           gsap.to(header, {
             y: 0,
             duration: 0.3,
-            ease: 'power2.out',
+            ease: 'linear',
+            overwrite: 'auto',
           });
         }
       }
@@ -123,46 +118,35 @@
     throw new Error('Required DOM elements not found');
   }
 
-  const menuText = menuToggle.querySelector('span');
   const menuArrow = menuToggle.querySelector('svg');
 
   let isMenuOpen = false;
 
-  // Initialize menu state
+  // Overlay grows from top right (scaleX, scaleY from 0 to 1)
   gsap.set(navOverlay, {
     opacity: 0,
     pointerEvents: 'none',
-    scale: 0.95,
+    scaleX: 0,
+    scaleY: 0,
     transformOrigin: 'top right',
   });
 
+  // Menu items start hidden and collapsed vertically
   gsap.set(navLinks, {
     opacity: 0,
-    x: 50,
-    y: -50,
-    transformOrigin: 'top right',
+    scaleY: 0,
+    transformOrigin: 'bottom',
   });
 
-  // Toggle menu function
+  let openTimeline: gsap.core.Timeline | null = null;
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
     menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
 
     if (isMenuOpen) {
       // Open menu animation
-      gsap
+      openTimeline = gsap
         .timeline()
-        .to(menuText, {
-          opacity: 0,
-          duration: 0.2,
-        })
-        .set(menuText, {
-          text: 'Close',
-        })
-        .to(menuText, {
-          opacity: 1,
-          duration: 0.2,
-        })
         .to(
           menuArrow,
           {
@@ -175,80 +159,29 @@
           navOverlay,
           {
             opacity: 1,
-            scale: 1,
+            scaleX: 1,
+            scaleY: 1,
             pointerEvents: 'auto',
-            duration: 0.15,
-            ease: 'power3.out',
+            duration: 0.25,
+            ease: 'linear',
           },
           '<'
         )
+        // Menu items reveal vertically from bottom to top, all at the same time
         .to(
           navLinks,
           {
             opacity: 1,
-            x: -50,
-            y: 50,
-            stagger: {
-              each: 0.04,
-              from: 'start',
-            },
-            duration: 0.15,
-            ease: 'power2.out',
+            scaleY: 1,
+            duration: 0.25,
+            ease: 'linear',
           },
-          '-=0.05'
+          '>-0.02'
         );
-
-      // Keep scroll enabled when menu is open
-    } else {
-      // Close menu animation
-      gsap
-        .timeline()
-        .to(menuText, {
-          opacity: 0,
-          duration: 0.2,
-        })
-        .set(menuText, {
-          text: 'Menu',
-        })
-        .to(menuText, {
-          opacity: 1,
-          duration: 0.2,
-        })
-        .to(
-          menuArrow,
-          {
-            rotation: 0,
-            duration: 0.3,
-          },
-          '<'
-        )
-        .to(
-          navLinks,
-          {
-            opacity: 0,
-            x: 50,
-            y: -50,
-            stagger: {
-              each: 0.03,
-              from: 'end',
-            },
-            duration: 0.2,
-          },
-          '<'
-        )
-        .to(
-          navOverlay,
-          {
-            opacity: 0,
-            scale: 0.95,
-            pointerEvents: 'none',
-            duration: 0.2,
-            ease: 'power3.in',
-          },
-          '-=0.1'
-        );
-
-      // Keep scroll enabled when menu is closed
+    } else if (openTimeline) {
+      openTimeline.reverse();
+      // After reverse, set menuText back to 'Menu' for accessibility
+      setTimeout(() => {}, 500);
     }
   };
 
