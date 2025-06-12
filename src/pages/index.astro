@@ -10,8 +10,16 @@ import Testimonials from '../components/Testimonials.astro';
 ---
 
 <Layout title='Eduardo Sacco - Senior Software Engineer'>
+  <div class='fixed inset-0 z-0'>
+    <img
+      src='/pine-watt-unsplash.jpg'
+      alt='Background'
+      class='w-full h-full object-cover'
+    />
+    <div class='absolute inset-0 bg-base-100/60'></div>
+  </div>
   <Header />
-  <main>
+  <main class='relative'>
     <Hero />
     <About />
     <WorkExperience />
