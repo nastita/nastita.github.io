@@ -1,5 +1,6 @@
 ---
-
+import content from '../../content.json';
+const { technologies } = content;
 ---
 
 <section id='skills' class='py-24 md:py-32 bg-base-200'>
@@ -21,165 +22,42 @@
       </p>
     </div>
 
-    <!-- Cloud Providers -->
     <div
       class='opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out'
     >
-      <h3
-        class='text-2xl font-bold mb-10 pb-4 border-b border-base-content/20 text-base-content'
+      <div
+        class='flex relative items-center overflow-hidden whitespace-nowrap gap-4 px-4'
+        id='tech-loop'
       >
-        Cloud Providers
-      </h3>
-      <div class='grid grid-cols-2 md:grid-cols-4 gap-8'>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img src='/images/technologies/aws.svg' alt='AWS' class='w-full' />
-          </div>
-          <span class='font-medium'>Amazon Web Services</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/azure.svg'
-              alt='Azure'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>Microsoft Azure</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Programming Languages -->
-    <div
-      class='opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out'
-    >
-      <h3
-        class='text-2xl font-bold mb-10 pb-4 border-b border-base-content/20 text-base-content'
-      >
-        Programming Languages & Frameworks
-      </h3>
-      <div class='grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10'>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/c-sharp.svg'
-              alt='C#'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>C#</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/dotnet-core.svg'
-              alt='.NET Core'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>.NET Core</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/js.svg'
-              alt='JavaScript'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>JavaScript</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/ts.svg'
-              alt='TypeScript'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>TypeScript</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/node.svg'
-              alt='Node.js'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>Node.js</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img src='/images/technologies/go.svg' alt='Go' class='w-full' />
-          </div>
-          <span class='font-medium'>Go</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/react.svg'
-              alt='React'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>React</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/nestjs.svg'
-              alt='NestJS'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>NestJS</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Databases -->
-    <div
-      class='opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out'
-    >
-      <h3
-        class='text-2xl font-bold mb-10 pb-4 border-b border-base-content/20 text-base-content'
-      >
-        Databases & Memory
-      </h3>
-      <div class='grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10'>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/postgres.svg'
-              alt='PostgreSQL'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>PostgreSQL</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/redis.svg'
-              alt='Redis'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>Redis</span>
-        </div>
-        <div class='flex items-center space-x-4'>
-          <div class='w-12 flex-shrink-0'>
-            <img
-              src='/images/technologies/mongodb.svg'
-              alt='MongoDB'
-              class='w-full'
-            />
-          </div>
-          <span class='font-medium'>MongoDB</span>
-        </div>
+        {
+          technologies.map((tech) => (
+            <div class='relative flex justify-center items-center shrink-0 gap-2 bg-black text-neutral-content px-4 py-2 rounded-full'>
+              <img
+                src={tech.image}
+                alt={tech.name}
+                class='w-6 h-6 object-contain'
+              />
+              <span class='font-medium'>{tech.name}</span>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
 </section>
+
+<!-- Plain browser script for GSAP horizontal loop -->
+<script>
+  import { horizontalLoop } from '../scripts/horizontalLoop';
+
+  var scroller = document.getElementById('tech-loop');
+  if (scroller) {
+    var items = scroller.children;
+    horizontalLoop(items, {
+      speed: 0.8,
+      paused: false,
+      repeat: -1,
+      paddingRight: 16, // This adds a gap equivalent to the gap-4 class (16px)
+    });
+  }
+</script>
