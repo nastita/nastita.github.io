@@ -1,61 +1,42 @@
 ---
 const menuItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Exp', href: '#work' },
+  { name: 'Main', href: '#main' },
+  { name: 'Exp', href: '#exp' },
   { name: 'Skills', href: '#skills' },
-  { name: 'Kudos', href: '#testimonials' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Kudos', href: '#kudos' },
 ];
 ---
 
 <header
   id='header'
-  class='fixed top-0 left-0 w-full z-[100] bg-base-100/50 backdrop-blur-sm'
+  class='fixed top-0 left-0 w-full z-[100] flex justify-center items-start pointer-events-none'
 >
-  <!-- Navigation Menu Button -->
-  <div class='fixed top-0 right-0 px-4 md:px-8 py-4 md:py-8'>
-    <div id='nav-container' class='relative z-[110]'>
-      <button
-        id='menu-toggle'
-        class='btn btn-primary uppercase gap-2 relative z-[120]'
-        aria-label='Toggle navigation'
-        aria-expanded='false'
-      >
-        <span>Menu</span>
-        <span class='relative w-3 h-3 transition'>
-          <svg
-            width='100%'
-            height='100%'
-            viewBox='0 0 13 8'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
-              d='M6.22656 5.53077L1.24775 0.551957L0.188427 1.61128L5.6969 7.11975L6.22656 7.63948L6.75622 7.11975L12.2647 1.61128L11.2054 0.551956L6.22656 5.53077Z'
-              fill='currentColor'></path>
-          </svg>
-        </span>
-      </button>
-
-      <!-- Navigation Overlay -->
+  <div id='nav-container' class='relative z-[110] w-full flex justify-center'>
+    <div class='w-full flex flex-col items-center'>
       <div
         id='nav-overlay'
-        class='absolute w-64 h-auto bg-neutral rounded-3xl -top-2 -right-2 shadow-lg z-[115] origin-top-right'
+        class='absolute left-1/2 -translate-x-1/2 top-0 w-[24rem] max-w-[90vw] bg-base-200 rounded-2xl shadow-lg z-[115] origin-top flex justify-center pointer-events-auto'
+        style='margin-top:1.2rem;'
       >
         <nav
           id='nav-menu'
-          class='menu menu-xl w-full gap-2 px-6 pt-20 pb-8 text-right'
+          class='flex flex-row justify-center items-center gap-8 px-6 py-4 w-full'
         >
           {
-            menuItems.map((item) => (
+            menuItems.map((item, idx) => (
               <a
                 href={item.href}
-                class='menu-item uppercase text-3xl font-monument tracking-tight nav-link hover:text-primary text-neutral-content'
+                class={`menu-item uppercase text-2xl font-monument tracking-tight nav-link hover:text-accent text-neutral-content relative`}
+                style='font-family: PPMonumentExtended-Regular, SpaceMono, monospace;'
+                data-menu-index={idx}
               >
                 {item.name}
+                <span
+                  class='menu-dot absolute left-1/2 -translate-x-1/2 mt-0 block'
+                  style={`font-size:1.1rem; opacity:0; transition:opacity 0.2s; top:90%;`}
+                >
+                  •
+                </span>
               </a>
             ))
           }
@@ -75,6 +56,8 @@ const menuItems = [
 
   let lastScrollTop = 0;
 
+  // Hide header almost completely, but leave a small part visible
+  const headerHideY = -56; // px, lower so dot is visible when hidden
   ScrollTrigger.create({
     id: 'header-scroll',
     start: 'top top',
@@ -83,138 +66,64 @@ const menuItems = [
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
 
-      // Only trigger header animation if menu is closed
-      if (!isMenuOpen) {
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-          // Scrolling down & past threshold
-          gsap.to(header, {
-            y: -100,
-            duration: 0.3,
-            ease: 'linear',
-            overwrite: 'auto',
-          });
-        } else {
-          // Scrolling up or at top
-          gsap.to(header, {
-            y: 0,
-            duration: 0.3,
-            ease: 'linear',
-            overwrite: 'auto',
-          });
-        }
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down & past threshold
+        gsap.to(header, {
+          y: headerHideY,
+          duration: 0.3,
+          ease: 'linear',
+          overwrite: 'auto',
+        });
+      } else {
+        // Scrolling up or at top
+        gsap.to(header, {
+          y: 0,
+          duration: 0.3,
+          ease: 'linear',
+          overwrite: 'auto',
+        });
       }
 
       lastScrollTop = scrollTop;
     },
   });
 
-  const menuToggle = document.getElementById('menu-toggle');
-  const navOverlay = document.getElementById('nav-overlay');
-  const navMenu = document.getElementById('nav-menu');
+  // Active menu dot logic
+  // Use Astro menuItems directly
+  const sectionIds = ['main', 'exp', 'skills', 'kudos'];
   const navLinks = document.querySelectorAll('.nav-link');
+  const menuDots = document.querySelectorAll('.menu-dot');
 
-  if (!menuToggle || !navOverlay || !navMenu) {
-    console.error('Required DOM elements not found');
-    throw new Error('Required DOM elements not found');
+  function updateActiveMenu() {
+    let activeIdx = 0;
+    for (let i = 0; i < sectionIds.length; i++) {
+      const section = document.getElementById(sectionIds[i]);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom > 120) {
+          activeIdx = i;
+          break;
+        }
+      }
+    }
+    navLinks.forEach((link, idx) => {
+      if (menuDots[idx] instanceof HTMLElement) {
+        // Only show dot for active menu item
+        (menuDots[idx] as HTMLElement).style.opacity =
+          idx === activeIdx ? '1' : '0';
+      }
+      if (idx === activeIdx) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
-  const menuArrow = menuToggle.querySelector('svg');
+  window.addEventListener('scroll', updateActiveMenu);
+  window.addEventListener('resize', updateActiveMenu);
+  document.addEventListener('DOMContentLoaded', updateActiveMenu);
 
-  let isMenuOpen = false;
-
-  // Overlay grows from top right (scaleX, scaleY from 0 to 1)
-  gsap.set(navOverlay, {
-    opacity: 0,
-    pointerEvents: 'none',
-    scaleX: 0,
-    scaleY: 0,
-    transformOrigin: 'top right',
-  });
-
-  // Menu items start hidden and collapsed vertically
-  gsap.set(navLinks, {
-    opacity: 0,
-    scaleY: 0,
-    transformOrigin: 'bottom',
-  });
-
-  let openTimeline: gsap.core.Timeline | null = null;
-  const toggleMenu = () => {
-    isMenuOpen = !isMenuOpen;
-    menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
-
-    if (isMenuOpen) {
-      // Open menu animation
-      openTimeline = gsap
-        .timeline()
-        .to(
-          menuArrow,
-          {
-            rotation: 180,
-            duration: 0.3,
-          },
-          '<'
-        )
-        .to(
-          navOverlay,
-          {
-            opacity: 1,
-            scaleX: 1,
-            scaleY: 1,
-            pointerEvents: 'auto',
-            duration: 0.25,
-            ease: 'linear',
-          },
-          '<'
-        )
-        // Menu items reveal vertically from bottom to top, all at the same time
-        .to(
-          navLinks,
-          {
-            opacity: 1,
-            scaleY: 1,
-            duration: 0.25,
-            ease: 'linear',
-          },
-          '>-0.02'
-        );
-    } else if (openTimeline) {
-      openTimeline.reverse();
-      // After reverse, set menuText back to 'Menu' for accessibility
-      setTimeout(() => {}, 500);
-    }
-  };
-
-  // Event Listeners
-  menuToggle.addEventListener('click', toggleMenu);
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (event) => {
-    const target = event.target as Node;
-    if (
-      isMenuOpen &&
-      !navMenu.contains(target) &&
-      !menuToggle.contains(target)
-    ) {
-      toggleMenu();
-    }
-  });
-
-  // Close menu on escape key
-  document.addEventListener('keydown', (event) => {
-    if (isMenuOpen && event.key === 'Escape') {
-      toggleMenu();
-    }
-  });
-
-  // Close menu on navigation
-  navLinks.forEach((link) => {
-    if (link.tagName === 'A') {
-      link.addEventListener('click', () => {
-        if (isMenuOpen) {
-          toggleMenu();
-        }
-      });
-    }
-  });
+  // const navOverlay = document.getElementById('nav-overlay');
+  // const navMenu = document.getElementById('nav-menu');
 </script>
