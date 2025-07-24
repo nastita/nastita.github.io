@@ -1,76 +1,113 @@
 ---
 import { experience } from '../../content.json';
+
+// Helper function to format dates
+function formatDate(dateString: string): string {
+  const [year, month] = dateString.split('-');
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${monthNames[parseInt(month) - 1]} ${year}`;
+}
 ---
 
-<script>
-  import { createHorizontalScroll } from '../scripts/createHorizontalScroll';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    createHorizontalScroll({
-      containerId: '#work-container',
-      triggerSelector: '#work',
-      itemsSelector: '.work-card',
-      scrubValue: 1,
-      extraScrollPercent: 300,
-    });
-  });
-</script>
-
-<section id='work' class='h-screen py-24 md:py-32 bg-base-200 overflow-hidden'>
+<section id='exp' class='py-24 md:py-32 bg-base-100'>
   <div class='container mx-auto px-6 lg:px-8'>
-    <div class='max-w-3xl mb-16 md:mb-24'>
-      <p
-        class='text-sm font-semibold uppercase tracking-wider text-base-content/70 mb-4'
-      >
+    <!-- Section Header -->
+    <header class='max-w-3xl mb-16 md:mb-24'>
+      <p class='text-sm font-semibold uppercase tracking-wider text-base-content/70 mb-4'>
         Experience
       </p>
-      <h2
-        class='text-4xl md:text-5xl font-bold tracking-tight mb-8 text-base-content'
-      >
+      <h2 class='text-4xl md:text-5xl font-bold tracking-tight mb-8 text-base-content'>
         Work History
       </h2>
       <p class='text-lg text-base-content/80'>
         These are some of the companies I have worked for in the past.
       </p>
-    </div>
+    </header>
 
-    <div id='work-container' class='flex gap-16 md:gap-x-24'>
-      {
-        experience.map((job) => (
-          <div class='work-card flex-shrink-0 w-full md:w-[700px] max-h-[80vh] overflow-y-auto'>
-            <div class='flex gap-8 group'>
-              <div class='w-1/3 flex flex-col'>
-                <div class='mb-6'>
-                  <img
-                    src={`${job.image}`}
-                    alt={`${job.company} logo`}
-                    class='h-16 md:h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105'
-                  />
-                </div>
-                <div class='space-y-2'>
-                  <h3 class='text-xl md:text-2xl font-bold'>{job.company}</h3>
-                  <p class='text-base text-gray-500 dark:text-gray-400'>
-                    {job.duration.split(' ').pop()}
-                  </p>
+    <!-- Timeline Container -->
+    <div class='relative max-w-5xl'>
+      <!-- Timeline Line -->
+      <div class='absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/40 to-primary/20'></div>
+      
+      <!-- Experience Items -->
+      <div class='space-y-12'>
+        {experience.map((job) => {
+          const startDate = formatDate(job.start);
+          const endDate = formatDate(job.end);
+          
+          return (
+            <article class='relative'>
+              {/* To date above card */}
+              <div class='pl-16 pb-6'>
+                <div class='absolute left-6 transform -translate-x-1/2'>
+                  <div class='w-3 h-3 rounded-full bg-primary shadow-lg border-2 border-base-100 z-20'></div>
+                  <div class='absolute left-6 -top-1 text-xs font-medium text-base-content/70 whitespace-nowrap'>
+                    to {endDate}
+                  </div>
                 </div>
               </div>
-              <div class='w-2/3'>
-                <p class='text-base font-semibold text-gray-700 dark:text-gray-300 mb-4'>
-                  {job.role}
-                </p>
-                <p class='text-gray-600 dark:text-gray-300 mb-4'>
-                  {job.description}
-                </p>
-                <ul class='list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2'>
-                  {job.responsibilities.map((resp) => (
-                    <li>{resp}</li>
-                  ))}
-                </ul>
+
+              {/* Job Card */}
+              <div class='pl-16'>
+                <div class='bg-base-200/50 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 group border border-base-content/5'>
+                  <div class='flex flex-col lg:flex-row gap-6'>
+                    <!-- Company Info -->
+                    <div class='lg:w-1/3 flex flex-col'>
+                      <div class='mb-4'>
+                        <img
+                          src={job.image}
+                          alt={`${job.company} logo`}
+                          class='h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105'
+                          loading='lazy'
+                        />
+                      </div>
+                      <div class='space-y-2'>
+                        <h3 class='text-lg md:text-xl font-bold text-base-content group-hover:text-primary transition-colors'>
+                          {job.company}
+                        </h3>
+                        <p class='text-sm text-base-content/60 flex items-center gap-1'>
+                          <svg class='w-3 h-3' fill='currentColor' viewBox='0 0 20 20'>
+                            <path fill-rule='evenodd' d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' clip-rule='evenodd'></path>
+                          </svg>
+                          {job.location}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <!-- Job Details -->
+                    <div class='lg:w-2/3'>
+                      <h4 class='text-base md:text-lg font-semibold text-base-content/90 mb-3'>
+                        {job.role}
+                      </h4>
+                      <p class='text-base-content/80 mb-4 leading-relaxed'>
+                        {job.description}
+                      </p>
+                      <ul class='space-y-2'>
+                        {job.responsibilities.map((responsibility) => (
+                          <li class='flex items-start gap-3 text-sm text-base-content/70'>
+                            <span class='w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0'></span>
+                            <span>{responsibility}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))
-      }
+
+              {/* From date below card */}
+              <div class='pl-16 pt-6'>
+                <div class='absolute left-6 transform -translate-x-1/2'>
+                  <div class='w-3 h-3 rounded-full bg-primary shadow-lg border-2 border-base-100 z-20'></div>
+                  <div class='absolute left-6 -top-1 text-xs font-medium text-base-content/70 whitespace-nowrap'>
+                    from {startDate}
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
     </div>
   </div>
 </section>
