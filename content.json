@@ -17,10 +17,28 @@
   ],
   "experience": [
     {
+      "company": "Universal Everything / LUKSO",
+      "image": "/images/companies/lukso.png",
+      "role": "Lead Back End Engineer",
+      "start": "2023-04",
+      "end": "present",
+      "location": "Remote, Argentina",
+      "description": "Developing core LUKSO blockchain services",
+      "responsibilities": [
+        "Improving and maintaining LUKSO Transaction Relayer",
+        "Developed blockchain migration one-way bridge.",
+        "Developing Entitlements/Subscription manager platform to monetize our range of products.",
+        "Main contributor in The Grid social platform product."
+      ],
+      "companyDescription": "Universal Everything / LUKSO is developing the LUKSO blockchain, a next-generation blockchain platform designed for creative, lifestyle, and fashion industries."
+    },
+    {
       "company": "Proof of Attendance Protocol",
       "image": "/images/companies/poap.png",
       "role": "Senior Software Engineer",
-      "duration": "Remotely from October 2021 to September 2022",
+      "start": "2021-10",
+      "end": "2022-09",
+      "location": "Remote",
       "description": "Back End Engineer part of the core engineering team in charge of the maintenance and improvement of POAP's core functionality namely, viewing POAPs, minting them on the Blockchain, and preventing farmers.",
       "responsibilities": [
         "Developed a new service to abstract and handle blockchain transactions resiliently from scratch.",
@@ -33,7 +51,9 @@
       "company": "KIN + CARTA",
       "image": "/images/companies/kin-and-carta.png",
       "role": "Senior Software Engineer Consultant",
-      "duration": "Remotely from March 2021 to September 2021",
+      "start": "2021-03",
+      "end": "2021-09",
+      "location": "Remote",
       "description": "Back End Engineer developing Swift, a brand new business management app for Magellan Midstream Partners.",
       "responsibilities": [
         "Developed several new web API endpoints to retrieve, process and present complex business data sets.",
@@ -46,7 +66,9 @@
       "company": "Southworks",
       "image": "/images/companies/southworks.png",
       "role": "Senior Software Engineer",
-      "duration": "Buenos Aires/Remotely from May 2018 to March 2021",
+      "start": "2018-05",
+      "end": "2021-03",
+      "location": "Buenos Aires/Remote",
       "description": "Fullstack Engineer, vendor for Microsoft worked on Microsoft Email Orchestrator, an internal tool to build and deliver emails for company products at scale. At the time MEO was picked to be the default email handling tool for all Microsoft Azure emails and was sending around 7M emails per day.",
       "responsibilities": [
         "Designed and implemented new features autonomously. Took ownership of several crucial pieces of the project.",
