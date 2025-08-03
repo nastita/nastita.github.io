@@ -1,0 +1,280 @@
+{
+  "name": "Eduardo Sacco",
+  "title": "Electronic Engineer - Senior Software Engineer",
+  "contact": {
+    "email": "saccoeduardo@gmail.com",
+    "job-invite": "https://forms.gle/sYGUgFjUKfzGjXVM8",
+    "calendar": "https://calendly.com/esacco/meet-with-ed",
+    "resume": "https://drive.google.com/uc?id=10m-e-6Peydeh3ITGFtEl9hEjXiP0NLBM&export=download",
+    "linkedin": "https://www.linkedin.com/in/esacco/",
+    "twitter": "https://twitter.com/nastitasuper",
+    "github": "https://github.com/eduardosacco"
+  },
+  "about": [
+    "Hi im Ed! I am an engineer from Argentina with 4+ years proven experience in the software development industry.",
+    "I am a quick learner and thinker who takes ownership of his work and leverages team work and expertise to drive impact.",
+    "I contributed to Microsoft's production Email Orchestrator solution and I was part of POAPs core developers team.",
+    "I am currently looking for my next place to continue my Web3 journey!"
+  ],
+  "experience": [
+    {
+      "company": "Universal Everything / LUKSO",
+      "image": "/images/companies/lukso.png",
+      "role": "Lead Back End Engineer",
+      "start": "2023-04",
+      "end": "present",
+      "location": "Remote, Argentina",
+      "description": "Developing core LUKSO blockchain services",
+      "responsibilities": [
+        "Improving and maintaining LUKSO Transaction Relayer",
+        "Developed blockchain migration one-way bridge.",
+        "Developing Entitlements/Subscription manager platform to monetize our range of products.",
+        "Main contributor in The Grid social platform product."
+      ],
+      "companyDescription": "Universal Everything / LUKSO is developing the LUKSO blockchain, a next-generation blockchain platform designed for creative, lifestyle, and fashion industries."
+    },
+    {
+      "company": "Proof of Attendance Protocol",
+      "image": "/images/companies/poap.png",
+      "role": "Senior Software Engineer",
+      "start": "2021-10",
+      "end": "2022-09",
+      "location": "Remote",
+      "description": "Back End Engineer part of the core engineering team in charge of the maintenance and improvement of POAP's core functionality namely, viewing POAPs, minting them on the Blockchain, and preventing farmers.",
+      "responsibilities": [
+        "Developed a new service to abstract and handle blockchain transactions resiliently from scratch.",
+        "Maintained and optimized the core POAP server codebase and improved its security, maintainability, resiliency and efficiency.",
+        "Improved observability of the core system components."
+      ],
+      "companyDescription": "POAP (Proof of Attendance Protocol) is a Web3 company whose main product are the homonym POAPs, digital collectibles created as an NFTs that enable a new way of keeping long-lasting records of life experiences leveraging on the blockchain technology."
+    },
+    {
+      "company": "KIN + CARTA",
+      "image": "/images/companies/kin-and-carta.png",
+      "role": "Senior Software Engineer Consultant",
+      "start": "2021-03",
+      "end": "2021-09",
+      "location": "Remote",
+      "description": "Back End Engineer developing Swift, a brand new business management app for Magellan Midstream Partners.",
+      "responsibilities": [
+        "Developed several new web API endpoints to retrieve, process and present complex business data sets.",
+        "Started designing and implementing a new testing framework.",
+        "Quickly learned project infrastructure and helped onboard new team members."
+      ],
+      "companyDescription": "Kin + Carta is a global digital transformation business, that leverages on over 1,700 highly specialized technologists, strategists and creatives across four continents, making the journey to becoming a digital business tangible, sustainable, and profitable."
+    },
+    {
+      "company": "Southworks",
+      "image": "/images/companies/southworks.png",
+      "role": "Senior Software Engineer",
+      "start": "2018-05",
+      "end": "2021-03",
+      "location": "Buenos Aires/Remote",
+      "description": "Fullstack Engineer, vendor for Microsoft worked on Microsoft Email Orchestrator, an internal tool to build and deliver emails for company products at scale. At the time MEO was picked to be the default email handling tool for all Microsoft Azure emails and was sending around 7M emails per day.",
+      "responsibilities": [
+        "Designed and implemented new features autonomously. Took ownership of several crucial pieces of the project.",
+        "Identified, isolated, diagnosed and fixed production issues.",
+        "Led weekly (iteration) planning and backlog grooming. Drove iteration planning meetings with the customer, Microsoft's side Product Owner.",
+        "Managed three dev fire-team. Signed off pull requests. Analyzed and provided feedback about developers performance."
+      ],
+      "companyDescription": "Southworks is a global software development partner that brings dev-intensity to different organizations, delivering quick strategic wins to help accelerate, grow, and scale. They have big name clients such as: Microsoft, AWS."
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Amazon Web Services",
+      "image": "/images/technologies/aws.svg"
+    },
+    {
+      "name": "Microsoft Azure",
+      "image": "/images/technologies/azure.svg"
+    },
+    {
+      "name": "C",
+      "image": "/images/technologies/c.png"
+    },
+    {
+      "name": "C++",
+      "image": "/images/technologies/c++.png"
+    },
+    {
+      "name": "C#",
+      "image": "/images/technologies/c-sharp.svg"
+    },
+    {
+      "name": ".NET and .NET Core",
+      "image": "/images/technologies/dotnet-core.svg"
+    },
+    {
+      "name": "Javascript",
+      "image": "/images/technologies/js.svg"
+    },
+    {
+      "name": "Typescript",
+      "image": "/images/technologies/ts.svg"
+    },
+    {
+      "name": "Node js",
+      "image": "/images/technologies/node.svg"
+    },
+    {
+      "name": "Go",
+      "image": "/images/technologies/go.svg"
+    },
+    {
+      "name": "React",
+      "image": "/images/technologies/react.svg"
+    },
+    {
+      "name": "Express",
+      "image": "/images/technologies/expressjs.png"
+    },
+    {
+      "name": "Nest js",
+      "image": "/images/technologies/nestjs.svg"
+    },
+    {
+      "name": "SQL",
+      "image": "/images/technologies/sql.svg"
+    },
+    {
+      "name": "Postgres",
+      "image": "/images/technologies/postgres.svg"
+    },
+    {
+      "name": "Redis",
+      "image": "/images/technologies/redis.svg"
+    },
+    {
+      "name": "My SQL",
+      "image": "/images/technologies/mysql.svg"
+    },
+    {
+      "name": "SQL Server",
+      "image": "/images/technologies/microsoft-sql-server.svg"
+    },
+    {
+      "name": "Mongo DB",
+      "image": "/images/technologies/mongodb.svg"
+    },
+    {
+      "name": "Dynamo DB",
+      "image": "/images/technologies/dynamodb.svg"
+    },
+    {
+      "name": "Cosmos DB",
+      "image": "/images/technologies/cosmosdb.png"
+    },
+    {
+      "name": "n unit",
+      "image": "/images/technologies/nunit.svg"
+    },
+    {
+      "name": "x unit",
+      "image": "/images/technologies/xunit.svg"
+    },
+    {
+      "name": "Jest",
+      "image": "/images/technologies/jest.png"
+    },
+    {
+      "name": "Mocha",
+      "image": "/images/technologies/mocha.svg"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Buenos Aires Institute of Technology",
+      "degree": "2019 - Electronic Engineering degree with a specialization in Digital Signal Processing."
+    }
+  ],
+  "languages": [
+    {
+      "language": "Fluent technical English",
+      "proficiency": "I've been working with multicultural international teams where the main communication language has been English for more than 5 years."
+    },
+    {
+      "language": "Native spanish",
+      "proficiency": "I was born in Argentina, Spanish is my native language."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Ebru Ismailoglu",
+      "image": "/images/individuals/ebru.jpg",
+      "position": "Head of HR LUKSO",
+      "relationship": "January 31, 2025, Ebru worked with Eduardo but on different teams",
+      "content": "If you're looking for an exceptional Lead Backend Engineer, look no further than Eduardo Sacco. Eduardo is not only incredibly skilled and knowledgeable in backend development, but he is also a driving force behind our team's success. His commitment to delivering high-quality, scalable solutions is second to none, and his innovative ideas continuously push our projects to new heights. Beyond his technical expertise, Eduardo brings an irreplaceable energy to our team. His humor and positive attitude make every meeting, brainstorming session, and even the most challenging moments a pleasure to navigate. He has a unique ability to lighten up any gathering, keeping spirits high while staying focused on delivering outstanding results. I truly enjoy working with Eduardo and feel lucky to have him as a colleague. His combination of technical excellence, creative problem-solving, and uplifting personality makes him an invaluable part of our team."
+    },
+    {
+      "name": "Gonzalo Alcaraz",
+      "image": "/images/individuals/gonza.jpg",
+      "position": "Tech Lead | Senior Software Engineer | 10+ Years in Tech ",
+      "relationship": "February 21, 2023, Gonzalo worked with Eduardo on the same team",
+      "content": "Eduardo is a truly remarkable professional, with not only great technical but also organizational and people skills. He is also a great team player, and regularly contributes to developing other team members' skills and knowledge base, but also to creating a pleasant and productive team culture. I've had the good luck of both having studied with Eduardo and worked with him on different companies, and so have had the opportunity to see him grow as a professional in all areas. There's no other person I'd rather have on my team."
+    },
+    {
+      "name": "Tomás Soracco",
+      "image": "/images/individuals/tomso.jpeg",
+      "position": "Co-founder at POAP - The Proof of Attendance Protocol",
+      "relationship": "September 24, 2022, Tomás was senior to Eduardo but didn't manage Eduardo directly",
+      "content": "I had a very good experience working with Edu. He was always very interested in learning not only about the product but the entire ecosystem and implementing best practices. Beyond the professional, he developed a great bond with the team and always proved to be an excellent person. I would recommend Eduardo to any organization looking for a committed professional with experience in various areas and a desire to grow."
+    },
+    {
+      "name": "Agustin Lavarello",
+      "image": "/images/individuals/agustincito.jpeg",
+      "position": "Technical Lead at POAP - The Proof of Attendance Protocol",
+      "relationship": "September 20, 2022, Agustin managed Eduardo directly",
+      "content": "Eduardo is a great developer and an outstanding professional. He is a great teammate, always willing to help others. He is very proactive and efficient, not only does he think for the best solution to the problem but also how to optimize processes to empower his coworkers. It was a pleasure working with him and learning from him."
+    },
+    {
+      "name": "Ignacio Grayeb",
+      "image": "/images/individuals/nacho.jpeg",
+      "position": "Software Engineering Team Lead at POAP - The Proof of Attendance Protocol",
+      "relationship": "September 3, 2022, Ignacio worked with Eduardo but on different teams",
+      "content": "Eduardo is an outstanding professional, with great knowledge and capacity to adapt to fast-paced changes. He is a true team worker and problem solver and has the ability of quickly learning new technologies and excelling at them."
+    },
+    {
+      "name": "Ignacio Nicolás Negro Caino",
+      "image": "/images/individuals/negrocaino.jpeg",
+      "position": "Software Engineer at POAP - The Proof of Attendance Protocol",
+      "relationship": "September 3, 2022, Ignacio Nicolás worked with Eduardo on the same team",
+      "content": "Eduardo is one of the greatest person I'd had the pleasure to work with, He's professional, great partner and versatile. He is one of those people which you can give him an unknown problem and he will eventually find an optimal and efficient solution to it. Also he performs well communication ideas and arguing about them with the team."
+    },
+    {
+      "name": "Mathieu Tremblay",
+      "image": "/images/individuals/mathieu.jpeg",
+      "position": "Entrepreneur at POAP - The Proof of Attendance Protocol",
+      "relationship": "September 1, 2022, Mathieu worked with Eduardo but on different teams",
+      "content": "In addition to being a good developer, Eduardo has a great personality that makes him a great teammate. He was also committed to the success of the business, made sure everybody was feeling awesome (he took very good care of us when we visited in Argentina) and was a positive contributor at all times."
+    },
+    {
+      "name": "Elijah Gay",
+      "image": "/images/individuals/elijah.jpeg",
+      "position": "Team Lead at Kin+Carta",
+      "relationship": "November 4, 2021, Elijah managed Eduardo directly",
+      "content": "Eduardo is a hard-working, intelligent developer. In my time working with him, our team faced great technical challenges, and Eduardo eagerly pursued them - and completed them as well! His code is clean and easy to read. He keeps a positive attitude and has built up strong working relationships with his co-workers, even when distance and time zones could have raised issues. I would happily work with Eduardo again."
+    },
+    {
+      "name": "Annie Moy, CSPO",
+      "image": "/images/individuals/annie.jpeg",
+      "position": "Consultant, Product Strategy at Kin + Carta",
+      "relationship": "November 4, 2021, Annie worked with Eduardo on the same team",
+      "content": "Eduardo is extremely knowledgeable and skilled in his craft. As the Product Owner on our fairly complex project, I found that he is able to quickly understand the problem we are trying to solve and asks thoughtful, detailed questions to ensure that the best solution is implemented. Ed is extremely detail-oriented and meticulous with his code. He is also a wonderful team player, always willing to step up and assist a junior developer or pair to get someone unstuck. He has great communication skills for all levels of the business, whether it is with someone technical like himself, someone middle-ground like me, or someone not very technical like the client. He is always able to explain in a way that is on the other person's level."
+    },
+    {
+      "name": "Charlotte Wilson",
+      "image": "/images/individuals/charlotte.jpeg",
+      "position": "Certified Scrum Master at Kin + Carta",
+      "relationship": "October 22, 2021, Charlotte worked with Eduardo on the same team",
+      "content": "Eduardo is one of the hardest working, dedicated BE developers that I have come to know. I have had the pleasure of working with Eduardo as his Scrum Master and I am continually impressed with his knowledge and support to get the job done. One project that we have been working on in particular Eduardo is able to perform at the velocity of 2 or 3 developers combined. Eduardo also has great communication skills when advising a viable solution to the client. Eduardo is the true glue that holds the team together and is a true expert in his field."
+    },
+    {
+      "name": "James Nitz",
+      "image": "/images/individuals/james.jpeg",
+      "position": "Software Developer",
+      "relationship": "September 29, 2021, James worked with Eduardo on the same team.",
+      "content": "Eduardo is a great developer and teammate. He was always willing to pivot to help another team member or take any other high priority task and worked diligently to meet deadlines. He helped spearhead a stronger focus on testing to improve the codebase and also helped to train new team members."
+    }
+  ]
+}

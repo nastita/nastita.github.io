@@ -1,0 +1,96 @@
+<section id='main' class='relative pt-80 pb-40 bg-base-100'>
+  <div class='container mx-auto px-6 lg:px-8'>
+    <!-- Top Row: Picture + Name -->
+    <div class='flex items-center gap-8 mb-8'>
+      <!-- Profile Picture -->
+      <div
+        class='w-32 h-32 rounded-full overflow-hidden opacity-0 translate-y-8 transition-all duration-600 ease-out flex-shrink-0'
+      >
+        <img
+          src='/images/ed.png'
+          alt='Eduardo Sacco'
+          class='w-full h-full object-cover'
+        />
+      </div>
+
+      <!-- Name - Keep on same line -->
+      <div class='flex-1 min-w-0'>
+        <h1
+          class='text-4xl md:text-5xl lg:text-6xl font-black uppercase text-base-content opacity-0 translate-y-8 transition-all duration-600 delay-100 ease-out tracking-tight leading-none whitespace-nowrap'
+          style="font-family: 'Monument Sans'; letter-spacing: -0.02em; -webkit-text-stroke: 1px currentColor;"
+        >
+          Eduardo Sacco
+        </h1>
+      </div>
+    </div>
+
+    <!-- Title Row -->
+    <div class='mb-8'>
+      <h2
+        class='text-3xl md:text-4xl font-bold text-base-content opacity-0 translate-y-8 transition-all duration-600 delay-200 ease-out'
+      >
+        Senior Software Engineer
+      </h2>
+    </div>
+
+    <!-- Bio Content -->
+    <div
+      class='opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out prose prose-lg text-base-content mb-8'
+    >
+      <p>
+        I am an engineer from Argentina with 7+ years proven experience as a
+        software engineer.
+      </p>
+      <p>
+        I create robust and innovative software solutions with a focus on web
+        and blockchain technologies.
+      </p>
+      <p>
+        I am a quick learner and thinker who takes ownership of his work and
+        leverages team work and expertise to drive impact.
+      </p>
+    </div>
+
+    <!-- CTA Button -->
+    <div
+      class='flex justify-center opacity-0 my-10 transition-all duration-600 delay-400 ease-out'
+    >
+      <a
+        href='https://forms.gle/sYGUgFjUKfzGjXVM8'
+        target='_blank'
+        rel='noopener noreferrer'
+        class='btn btn-primary uppercase hover:scale-105 transition-transform duration-200'
+      >
+        Invite me to a job
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div
+    class='absolute bottom-10 left-1/2 -translate-x-1/2 text-2xl animate-bounce z-1000'
+  >
+    <i class='fas fa-chevron-down'></i>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for animations
+  const fadeElements = document.querySelectorAll('[class*="opacity-0"]');
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  fadeElements.forEach((element) => {
+    fadeObserver.observe(element);
+  });
+</script>
