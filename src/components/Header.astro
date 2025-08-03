@@ -5,6 +5,11 @@ const menuItems = [
   { name: 'Skills', href: '#skills' },
   { name: 'Kudos', href: '#kudos' },
 ];
+
+// Update these URLs with your actual ones
+const githubUrl = 'https://github.com/nastita';
+const linkedinUrl = 'https://linkedin.com/in/nastita';
+const portfolioPath = '/resume-sacco.pdf';
 ---
 
 <header
@@ -15,19 +20,18 @@ const menuItems = [
     <div class='w-full flex flex-col items-center'>
       <div
         id='nav-overlay'
-        class='absolute left-1/2 -translate-x-1/2 top-0 w-[24rem] max-w-[90vw] bg-base-200 rounded-2xl shadow-lg z-[115] origin-top flex justify-center pointer-events-auto'
+        class='absolute left-1/2 -translate-x-1/2 top-0 inline-block bg-base-200 rounded-2xl shadow-lg z-[115] origin-top pointer-events-auto'
         style='margin-top:1.2rem;'
       >
         <nav
           id='nav-menu'
-          class='flex flex-row justify-center items-center gap-8 px-6 py-4 w-full'
+          class='flex flex-row justify-center items-center gap-4 px-6 py-4'
         >
           {
             menuItems.map((item, idx) => (
               <a
                 href={item.href}
-                class={`menu-item uppercase text-2xl font-monument tracking-tight nav-link hover:text-accent text-neutral-content relative`}
-                style='font-family: PPMonumentExtended-Regular, SpaceMono, monospace;'
+                class={`menu-item uppercase nav-link hover:text-primary text-neutral-content relative`}
                 data-menu-index={idx}
               >
                 {item.name}
@@ -40,6 +44,48 @@ const menuItems = [
               </a>
             ))
           }
+          <div
+            class='flex items-center gap-4 ml-4 border-l border-base-content/20 pl-4'
+          >
+            <a
+              href={githubUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-white hover:text-primary transition-colors'
+              aria-label='GitHub Profile'
+            >
+              <img
+                src='/icons/github.svg'
+                alt='GitHub'
+                class='h-6 w-6 brightness-0 invert'
+              />
+            </a>
+            <a
+              href={linkedinUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-white hover:text-primary transition-colors'
+              aria-label='LinkedIn Profile'
+            >
+              <img
+                src='/icons/linkedin.svg'
+                alt='LinkedIn'
+                class='h-6 w-6 brightness-0 invert'
+              />
+            </a>
+            <a
+              href={portfolioPath}
+              class='text-white hover:text-primary transition-colors'
+              aria-label='Download Resume'
+              download
+            >
+              <img
+                src='/icons/resume.svg'
+                alt='Resume'
+                class='h-6 w-6 brightness-0 invert'
+              />
+            </a>
+          </div>
         </nav>
       </div>
     </div>
@@ -55,8 +101,6 @@ const menuItems = [
   const header = document.getElementById('header');
 
   let lastScrollTop = 0;
-
-  // Hide header almost completely, but leave a small part visible
   const headerHideY = -56; // px, lower so dot is visible when hidden
   ScrollTrigger.create({
     id: 'header-scroll',
@@ -123,7 +167,4 @@ const menuItems = [
   window.addEventListener('scroll', updateActiveMenu);
   window.addEventListener('resize', updateActiveMenu);
   document.addEventListener('DOMContentLoaded', updateActiveMenu);
-
-  // const navOverlay = document.getElementById('nav-overlay');
-  // const navMenu = document.getElementById('nav-menu');
 </script>
