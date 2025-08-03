@@ -1,8 +1,5 @@
-<section
-  id='main'
-  class='pt-80 pb-40 flex items-center justify-center px-6 relative bg-base-100'
->
-  <div class='container mx-auto w-full relative'>
+<section id='main' class='relative pt-80 pb-40 bg-base-100'>
+  <div class='container mx-auto px-6 lg:px-8'>
     <!-- Top Row: Picture + Name -->
     <div class='flex items-center gap-8 mb-8'>
       <!-- Profile Picture -->
@@ -36,47 +33,46 @@
       </h2>
     </div>
 
-    <!-- Bottom Row: Bio + Buttons -->
-    <div class='grid md:grid-cols-3 gap-8 items-start'>
-      <!-- Bio Content -->
-      <div
-        class='md:col-span-2 opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out prose prose-lg text-base-content'
+    <!-- Bio Content -->
+    <div
+      class='opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out prose prose-lg text-base-content mb-8'
+    >
+      <p>
+        I am an engineer from Argentina with 7+ years proven experience as a
+        software engineer.
+      </p>
+      <p>
+        I create robust and innovative software solutions with a focus on web
+        and blockchain technologies.
+      </p>
+      <p>
+        I am a quick learner and thinker who takes ownership of his work and
+        leverages team work and expertise to drive impact.
+      </p>
+    </div>
+
+    <!-- CTA Button -->
+    <div
+      class='flex justify-center opacity-0 my-10 transition-all duration-600 delay-400 ease-out'
+    >
+      <a
+        href='https://forms.gle/sYGUgFjUKfzGjXVM8'
+        target='_blank'
+        rel='noopener noreferrer'
+        class='btn btn-primary uppercase hover:scale-105 transition-transform duration-200'
       >
-        <p>
-          <strong>Hi, I'm Ed!</strong> I am an engineer from Argentina with 4+ years
-          proven experience in the software development industry.
-        </p>
-        <p>
-          I create robust and innovative software solutions with a focus on web
-          and blockchain technologies.
-        </p>
-        <p>
-          I am a quick learner and thinker who takes ownership of his work and
-          leverages team work and expertise to drive impact.
-        </p>
-      </div>
+        Invite me to a job
+      </a>
     </div>
   </div>
+
+  <!-- Scroll Indicator -->
   <div
     class='absolute bottom-10 left-1/2 -translate-x-1/2 text-2xl animate-bounce z-1000'
   >
     <i class='fas fa-chevron-down'></i>
   </div>
 </section>
-
-<!-- Scroll Indicator -->
-<div
-  class='absolute bottom-10 left-1/2 -translate-x-1/2 text-2xl animate-bounce z-1000'
->
-  <i class='fas fa-chevron-down'></i>
-</div>
-
-<!-- Scroll Indicator -->
-<div
-  class='absolute bottom-10 left-1/2 -translate-x-1/2 text-2xl animate-bounce z-1000'
->
-  <i class='fas fa-chevron-down'></i>
-</div>
 
 <script>
   // Intersection Observer for animations
