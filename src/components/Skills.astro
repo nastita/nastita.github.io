@@ -3,7 +3,7 @@ import content from '../../content.json';
 const { technologies } = content;
 ---
 
-<section id='skills' class='py-24 md:py-32 bg-base-200'>
+<section id='skills' class='w-full py-24 md:py-32 bg-base-100'>
   <div class='container mx-auto px-6 lg:px-8'>
     <div class='text-center max-w-3xl mx-auto mb-16 md:mb-24'>
       <p
@@ -31,7 +31,7 @@ const { technologies } = content;
       >
         {
           technologies.map((tech) => (
-            <div class='relative flex justify-center items-center shrink-0 gap-2 bg-black text-neutral-content px-4 py-2 rounded-full'>
+            <div class='relative flex justify-center items-center shrink-0 gap-2 bg-base-content text-black px-4 py-2 rounded-full'>
               <img
                 src={tech.image}
                 alt={tech.name}
