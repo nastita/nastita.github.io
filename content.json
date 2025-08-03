@@ -3,6 +3,7 @@
   "title": "Electronic Engineer - Senior Software Engineer",
   "contact": {
     "email": "saccoeduardo@gmail.com",
+    "job-invite": "https://forms.gle/sYGUgFjUKfzGjXVM8",
     "calendar": "https://calendly.com/esacco/meet-with-ed",
     "resume": "https://drive.google.com/uc?id=10m-e-6Peydeh3ITGFtEl9hEjXiP0NLBM&export=download",
     "linkedin": "https://www.linkedin.com/in/esacco/",
@@ -198,6 +199,20 @@
     }
   ],
   "testimonials": [
+    {
+      "name": "Ebru Ismailoglu",
+      "image": "/images/individuals/ebru.jpg",
+      "position": "Head of HR LUKSO",
+      "relationship": "January 31, 2025, Ebru worked with Eduardo but on different teams",
+      "content": "If you're looking for an exceptional Lead Backend Engineer, look no further than Eduardo Sacco. Eduardo is not only incredibly skilled and knowledgeable in backend development, but he is also a driving force behind our team's success. His commitment to delivering high-quality, scalable solutions is second to none, and his innovative ideas continuously push our projects to new heights. Beyond his technical expertise, Eduardo brings an irreplaceable energy to our team. His humor and positive attitude make every meeting, brainstorming session, and even the most challenging moments a pleasure to navigate. He has a unique ability to lighten up any gathering, keeping spirits high while staying focused on delivering outstanding results. I truly enjoy working with Eduardo and feel lucky to have him as a colleague. His combination of technical excellence, creative problem-solving, and uplifting personality makes him an invaluable part of our team."
+    },
+    {
+      "name": "Gonzalo Alcaraz",
+      "image": "/images/individuals/gonza.jpg",
+      "position": "Tech Lead | Senior Software Engineer | 10+ Years in Tech ",
+      "relationship": "February 21, 2023, Gonzalo worked with Eduardo on the same team",
+      "content": "Eduardo is a truly remarkable professional, with not only great technical but also organizational and people skills. He is also a great team player, and regularly contributes to developing other team members' skills and knowledge base, but also to creating a pleasant and productive team culture. I've had the good luck of both having studied with Eduardo and worked with him on different companies, and so have had the opportunity to see him grow as a professional in all areas. There's no other person I'd rather have on my team."
+    },
     {
       "name": "Tomás Soracco",
       "image": "/images/individuals/tomso.jpeg",
