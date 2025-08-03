@@ -12,6 +12,15 @@ const linkedinUrl = 'https://linkedin.com/in/nastita';
 const portfolioPath = '/resume-sacco.pdf';
 ---
 
+<!-- Top progress bar -->
+<div class='fixed top-0 left-0 w-full h-1 bg-transparent z-[200] pointer-events-none'>
+  <div
+    id='progress-bar'
+    class='h-full bg-primary transition-all duration-100 ease-out'
+    style='width: 0%;'
+  ></div>
+</div>
+
 <header
   id='header'
   class='fixed top-0 left-0 w-full z-[100] flex justify-center items-start pointer-events-none'
@@ -25,22 +34,16 @@ const portfolioPath = '/resume-sacco.pdf';
       >
         <nav
           id='nav-menu'
-          class='flex flex-row justify-center items-center gap-4 px-6 py-4'
+          class='relative flex flex-row justify-center items-center gap-4 px-6 py-4'
         >
           {
             menuItems.map((item, idx) => (
               <a
                 href={item.href}
-                class={`menu-item uppercase nav-link hover:text-primary text-neutral-content relative`}
+                class={`menu-item uppercase nav-link hover:text-primary text-neutral-content relative hover:scale-105 transition-transform duration-200`}
                 data-menu-index={idx}
               >
                 {item.name}
-                <span
-                  class='menu-dot absolute left-1/2 -translate-x-1/2 mt-0 block'
-                  style={`font-size:1.1rem; opacity:0; transition:opacity 0.2s; top:90%;`}
-                >
-                  •
-                </span>
               </a>
             ))
           }
@@ -51,8 +54,9 @@ const portfolioPath = '/resume-sacco.pdf';
               href={githubUrl}
               target='_blank'
               rel='noopener noreferrer'
-              class='text-white hover:text-primary transition-colors'
+              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
               aria-label='GitHub Profile'
+              data-tip='GitHub Profile'
             >
               <img
                 src='/icons/github.svg'
@@ -64,8 +68,9 @@ const portfolioPath = '/resume-sacco.pdf';
               href={linkedinUrl}
               target='_blank'
               rel='noopener noreferrer'
-              class='text-white hover:text-primary transition-colors'
+              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
               aria-label='LinkedIn Profile'
+              data-tip='LinkedIn Profile'
             >
               <img
                 src='/icons/linkedin.svg'
@@ -75,8 +80,9 @@ const portfolioPath = '/resume-sacco.pdf';
             </a>
             <a
               href={portfolioPath}
-              class='text-white hover:text-primary transition-colors'
+              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
               aria-label='Download Resume'
+              data-tip='Download Resume'
               download
             >
               <img
@@ -92,79 +98,62 @@ const portfolioPath = '/resume-sacco.pdf';
   </div>
 </header>
 
+<style>
+  .nav-link.active {
+    color: hsl(var(--p));
+  }
+</style>
+
 <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const header = document.getElementById('header');
-
-  let lastScrollTop = 0;
-  const headerHideY = -56; // px, lower so dot is visible when hidden
-  ScrollTrigger.create({
-    id: 'header-scroll',
-    start: 'top top',
-    end: '+=9999',
-    onUpdate: (self) => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down & past threshold
-        gsap.to(header, {
-          y: headerHideY,
-          duration: 0.3,
-          ease: 'linear',
-          overwrite: 'auto',
-        });
-      } else {
-        // Scrolling up or at top
-        gsap.to(header, {
-          y: 0,
-          duration: 0.3,
-          ease: 'linear',
-          overwrite: 'auto',
-        });
-      }
-
-      lastScrollTop = scrollTop;
-    },
-  });
-
-  // Active menu dot logic
-  // Use Astro menuItems directly
+  // Progress bar scroll indicator
   const sectionIds = ['main', 'exp', 'skills', 'kudos'];
   const navLinks = document.querySelectorAll('.nav-link');
-  const menuDots = document.querySelectorAll('.menu-dot');
+  const progressBar = document.getElementById('progress-bar');
 
-  function updateActiveMenu() {
-    let activeIdx = 0;
-    for (let i = 0; i < sectionIds.length; i++) {
-      const section = document.getElementById(sectionIds[i]);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom > 120) {
-          activeIdx = i;
-          break;
+  if (progressBar) {
+    // Create ScrollTrigger for overall page progress
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        // Calculate overall scroll progress (0 to 1)
+        const scrollProgress = self.progress;
+
+        // Update progress bar width
+        gsap.set(progressBar, {
+          width: `${scrollProgress * 100}%`,
+        });
+
+        // Also determine current active section for menu highlighting
+        let currentSection = 0;
+
+        for (let i = 0; i < sectionIds.length; i++) {
+          const section = document.getElementById(sectionIds[i]);
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            // Section is active if it's prominently in the viewport (top portion)
+            if (rect.top <= 200 && rect.bottom > 200) {
+              currentSection = i;
+              break;
+            }
+          }
         }
-      }
-    }
-    navLinks.forEach((link, idx) => {
-      if (menuDots[idx] instanceof HTMLElement) {
-        // Only show dot for active menu item
-        (menuDots[idx] as HTMLElement).style.opacity =
-          idx === activeIdx ? '1' : '0';
-      }
-      if (idx === activeIdx) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+
+        // Update active link states
+        navLinks.forEach((link, idx) => {
+          if (idx === currentSection) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      },
     });
   }
-
-  window.addEventListener('scroll', updateActiveMenu);
-  window.addEventListener('resize', updateActiveMenu);
-  document.addEventListener('DOMContentLoaded', updateActiveMenu);
 </script>
