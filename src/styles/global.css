@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @tailwind utilities;
 @plugin "daisyui";
 
@@ -93,12 +93,11 @@
   }
 }
 
-
 @plugin "daisyui/theme" {
-  name: "noice";
+  name: 'noice';
   default: true;
   prefersdark: true;
-  color-scheme: "dark";
+  color-scheme: 'dark';
   --color-base-100: oklch(14% 0 0);
   --color-base-200: oklch(20% 0 0);
   --color-base-300: oklch(26% 0 0);
@@ -107,7 +106,7 @@
   --color-primary-content: oklch(26% 0.051 172.552);
   --color-secondary: oklch(67% 0.182 276.935);
   --color-secondary-content: oklch(25% 0.09 281.288);
-  --color-accent: oklch(85% 0.199 91.936);
+  --color-accent: oklch(75% 0.183 55.934);
   --color-accent-content: oklch(28% 0.066 53.813);
   --color-neutral: oklch(20% 0 0);
   --color-neutral-content: oklch(98% 0 0);
@@ -115,7 +114,7 @@
   --color-info-content: oklch(29% 0.066 243.157);
   --color-success: oklch(77% 0.152 181.912);
   --color-success-content: oklch(27% 0.046 192.524);
-  --color-warning: oklch(75% 0.183 55.934);
+  --color-warning: oklch(85% 0.199 91.936);
   --color-warning-content: oklch(26% 0.079 36.259);
   --color-error: oklch(70% 0.191 22.216);
   --color-error-content: oklch(25% 0.092 26.042);

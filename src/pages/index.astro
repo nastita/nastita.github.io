@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
 import WorkExperience from '../components/WorkExperience.astro';
 import Skills from '../components/Skills.astro';
 import Footer from '../components/Footer.astro';
@@ -10,23 +9,19 @@ import Testimonials from '../components/Testimonials.astro';
 ---
 
 <Layout title='Eduardo Sacco - Senior Software Engineer'>
-  <div class='fixed inset-0 z-0'>
-    <img
-      src='/pine-watt-unsplash.jpg'
-      alt='Background'
-      class='w-full h-full object-cover'
-    />
-    <div class='absolute inset-0 bg-base-100/60'></div>
-  </div>
-  <Header />
-  <main class='relative'>
+  {/* Main content */}
+  <div class='relative z-10'>
+    <Header />
     <Hero />
-    <About />
     <WorkExperience />
     <Skills />
     <Testimonials />
-  </main>
-  <Footer />
+  </div>
+
+  {/* Footer - uses sticky positioning */}
+  <footer class='sticky bottom-0 z-5'>
+    <Footer />
+  </footer>
 </Layout>
 
 <script>
