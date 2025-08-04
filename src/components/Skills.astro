@@ -4,7 +4,7 @@ const { technologies } = content;
 ---
 
 <section id='skills' class='w-full py-24 md:py-32 bg-base-100'>
-  <div class='container mx-auto px-6 lg:px-8'>
+  <div class='container mx-auto px-4 sm:px-6 lg:px-8'>
     <header class='max-w-3xl mb-16 md:mb-24'>
       <p class='text-sm font-semibold uppercase tracking-wider text-base-content/70 mb-4'>
         Expertise
@@ -22,18 +22,18 @@ const { technologies } = content;
       class='opacity-0 translate-y-8 transition-all duration-600 delay-300 ease-out'
     >
       <div
-        class='flex relative items-center overflow-hidden whitespace-nowrap gap-4 px-4'
+        class='flex relative items-center overflow-hidden whitespace-nowrap gap-3 sm:gap-4 px-4'
         id='tech-loop'
       >
         {
           technologies.map((tech) => (
-            <div class='relative flex justify-center items-center shrink-0 gap-2 bg-base-content text-black px-4 py-2 rounded-full'>
+            <div class='relative flex justify-center items-center shrink-0 gap-1.5 sm:gap-2 bg-base-content text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full'>
               <img
                 src={tech.image}
                 alt={tech.name}
-                class='w-6 h-6 object-contain'
+                class='w-4 h-4 sm:w-6 sm:h-6 object-contain'
               />
-              <span class='font-medium'>{tech.name}</span>
+              <span class='font-medium text-sm sm:text-base'>{tech.name}</span>
             </div>
           ))
         }
@@ -45,15 +45,51 @@ const { technologies } = content;
 <!-- Plain browser script for GSAP horizontal loop -->
 <script>
   import { horizontalLoop } from '../scripts/horizontalLoop';
+  import { gsap } from 'gsap';
 
-  var scroller = document.getElementById('tech-loop');
-  if (scroller) {
-    var items = scroller.children;
-    horizontalLoop(items, {
-      speed: 0.8,
-      paused: false,
-      repeat: -1,
-      paddingRight: 16, // This adds a gap equivalent to the gap-4 class (16px)
-    });
+  let loopInstance = null;
+
+  function initializeLoop() {
+    const scroller = document.getElementById('tech-loop');
+    if (scroller) {
+      // Kill existing animation if it exists
+      if (loopInstance) {
+        loopInstance.kill();
+        loopInstance = null;
+      }
+      
+      // Reset all transforms on items before reinitializing
+      const items = Array.from(scroller.children);
+      gsap.set(items, { clearProps: 'all' });
+      
+      // Small delay to ensure DOM has updated
+      setTimeout(() => {
+        loopInstance = horizontalLoop(items, {
+          speed: 0.8,
+          paused: false,
+          repeat: -1,
+          paddingRight: window.innerWidth < 640 ? 12 : 16, // Responsive padding
+        });
+      }, 50);
+    }
   }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', initializeLoop);
+
+  // Reinitialize on resize with debouncing
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      initializeLoop();
+    }, 300);
+  });
+
+  // Also handle orientation change for mobile devices
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+      initializeLoop();
+    }, 500);
+  });
 </script>

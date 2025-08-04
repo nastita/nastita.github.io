@@ -13,96 +13,86 @@ const portfolioPath = '/resume-sacco.pdf';
 ---
 
 <!-- Top progress bar -->
-<div class='fixed top-0 left-0 w-full h-1 bg-transparent z-[200] pointer-events-none'>
+<div
+  class='fixed top-0 left-0 w-full h-1 bg-transparent z-[200] pointer-events-none'
+>
   <div
     id='progress-bar'
     class='h-full bg-primary transition-all duration-100 ease-out'
     style='width: 0%;'
-  ></div>
+  >
+  </div>
 </div>
 
 <header
   id='header'
-  class='fixed top-0 left-0 w-full z-[100] flex justify-center items-start pointer-events-none'
+  class='fixed top-0 left-0 w-full z-[100] flex justify-center pointer-events-none'
 >
-  <div id='nav-container' class='relative z-[110] w-full flex justify-center'>
-    <div class='w-full flex flex-col items-center'>
-      <div
-        id='nav-overlay'
-        class='absolute left-1/2 -translate-x-1/2 top-0 inline-block bg-base-200 rounded-2xl shadow-lg z-[115] origin-top pointer-events-auto'
-        style='margin-top:1.2rem;'
-      >
-        <nav
-          id='nav-menu'
-          class='relative flex flex-row justify-center items-center gap-4 px-6 py-4'
-        >
-          {
-            menuItems.map((item, idx) => (
-              <a
-                href={item.href}
-                class={`menu-item uppercase nav-link hover:text-primary text-neutral-content relative hover:scale-105 transition-transform duration-200`}
-                data-menu-index={idx}
-              >
-                {item.name}
-              </a>
-            ))
-          }
-          <div
-            class='flex items-center gap-4 ml-4 border-l border-base-content/20 pl-4'
+  <nav
+    id='nav-menu'
+    class='bg-base-200 rounded-2xl shadow-lg flex flex-row justify-center items-center gap-4 px-6 py-4 nav-responsive pointer-events-auto min-w-fit'
+    style='margin-top:1.2rem;'
+  >
+    <div class='flex flex-row gap-4'>
+      {
+        menuItems.map((item, idx) => (
+          <a
+            href={item.href}
+            class={`menu-item text-base uppercase nav-link hover:text-primary text-neutral-content relative hover:scale-105 transition-transform duration-200`}
+            data-menu-index={idx}
           >
-            <a
-              href={githubUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
-              aria-label='GitHub Profile'
-              data-tip='GitHub Profile'
-            >
-              <img
-                src='/icons/github.svg'
-                alt='GitHub'
-                class='h-6 w-6 brightness-0 invert'
-              />
-            </a>
-            <a
-              href={linkedinUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
-              aria-label='LinkedIn Profile'
-              data-tip='LinkedIn Profile'
-            >
-              <img
-                src='/icons/linkedin.svg'
-                alt='LinkedIn'
-                class='h-6 w-6 brightness-0 invert'
-              />
-            </a>
-            <a
-              href={portfolioPath}
-              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
-              aria-label='Download Resume'
-              data-tip='Download Resume'
-              download
-            >
-              <img
-                src='/icons/resume.svg'
-                alt='Resume'
-                class='h-6 w-6 brightness-0 invert'
-              />
-            </a>
-          </div>
-        </nav>
-      </div>
+            {item.name}
+          </a>
+        ))
+      }
     </div>
-  </div>
+    <div
+      class='flex items-center gap-4 ml-4 border-l border-base-content/20 pl-4 nav-icons'
+    >
+      <a
+        href={githubUrl}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
+        aria-label='GitHub Profile'
+        data-tip='GitHub Profile'
+      >
+        <img
+          src='/icons/github.svg'
+          alt='GitHub'
+          class='h-6 w-6 flex-shrink-0 brightness-0 invert'
+        />
+      </a>
+      <a
+        href={linkedinUrl}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
+        aria-label='LinkedIn Profile'
+        data-tip='LinkedIn Profile'
+      >
+        <img
+          src='/icons/linkedin.svg'
+          alt='LinkedIn'
+          class='h-6 w-6 flex-shrink-0 brightness-0 invert'
+        />
+      </a>
+      <a
+        href={portfolioPath}
+        class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
+        aria-label='Download Resume'
+        data-tip='Download Resume'
+        download
+      >
+        <img
+          src='/icons/resume.svg'
+          alt='Resume'
+          class='h-6 w-6 flex-shrink-0 brightness-0 invert'
+        />
+      </a>
+    </div>
+  </nav>
 </header>
-
-<style>
-  .nav-link.active {
-    color: hsl(var(--p));
-  }
-</style>
 
 <script>
   import gsap from 'gsap';

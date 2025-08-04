@@ -3,7 +3,7 @@ import { testimonials } from '../../content.json';
 ---
 
 <section id='kudos' class='py-24 md:py-32 bg-base-100'>
-  <div class='container mx-auto px-6 lg:px-8'>
+  <div class='container mx-auto px-4 sm:px-6 lg:px-8'>
     <!-- Section Header -->
     <header class='max-w-3xl mb-16 md:mb-24'>
       <p class='text-sm font-semibold uppercase tracking-wider text-base-content/70 mb-4'>
@@ -18,26 +18,33 @@ import { testimonials } from '../../content.json';
     </header>
 
     <!-- Avatar Navigation -->
-    <div class='flex justify-center mb-12'>
-      <div id='testimonial-avatars' class='flex gap-4'>
+    <div class='flex justify-center mb-8 sm:mb-12'>
+      <div id='testimonial-avatars' class='flex gap-2 sm:gap-4 overflow-x-auto py-3 px-4 scroll-smooth' style='scrollbar-width: none; -ms-overflow-style: none;'>
         {
           testimonials.map((testimonial, idx) => (
             <button
               type='button'
-              class={`testimonial-avatar w-16 h-16 rounded-full border-2 border-base-content/20 transition-all duration-300 focus:outline-none hover:border-primary hover:scale-105 ${idx === 0 ? 'border-primary ring-4 ring-primary/30 scale-110' : 'grayscale'}`}
+              class={`testimonial-avatar w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-base-content/20 transition-all duration-300 focus:outline-none hover:border-primary hover:scale-105 flex-shrink-0 ${idx === 0 ? 'border-primary ring-4 ring-primary/30 scale-110' : 'grayscale'}`}
               aria-label={`Show testimonial from ${testimonial.name}`}
               data-idx={idx}
             >
               <img
                 src={testimonial.image}
                 alt={testimonial.name}
-                class='w-16 h-16 rounded-full object-cover'
+                class='w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover'
               />
             </button>
           ))
         }
       </div>
     </div>
+    
+    <style>
+      /* Hide scrollbar but keep functionality */
+      #testimonial-avatars::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
 
     <!-- Single Testimonial Card -->
     <div class='flex justify-center'>
@@ -49,30 +56,30 @@ import { testimonials } from '../../content.json';
               id={`testimonial-${idx}`}
               data-idx={idx}
             >
-              <div class='bg-base-200/50 backdrop-blur-sm rounded-xl p-8 md:p-12 shadow-sm hover:shadow-lg transition-all duration-300 border border-base-content/5'>
-                <div class='flex flex-col lg:flex-row gap-8'>
+              <div class='bg-base-200/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-sm hover:shadow-lg transition-all duration-300 border border-base-content/5'>
+                <div class='flex flex-col md:flex-row lg:flex-row gap-4 sm:gap-6 lg:gap-8'>
                   <!-- Avatar Info -->
-                  <div class='lg:w-1/3 flex flex-col items-center lg:items-start'>
-                    <div class='mb-6'>
+                  <div class='md:w-1/3 lg:w-1/3 flex flex-col items-center md:items-start'>
+                    <div class='mb-4 sm:mb-6'>
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        class='w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg'
+                        class='w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg'
                       />
                     </div>
-                    <div class='text-center lg:text-left space-y-2'>
-                      <h3 class='text-xl md:text-2xl font-bold text-base-content'>
+                    <div class='text-center md:text-left space-y-2'>
+                      <h3 class='text-lg sm:text-xl md:text-2xl font-bold text-base-content'>
                         {testimonial.name}
                       </h3>
-                      <p class='text-sm text-base-content/60'>
+                      <p class='text-xs sm:text-sm text-base-content/60'>
                         {testimonial.position}
                       </p>
                     </div>
                   </div>
                   
                   <!-- Testimonial Content -->
-                  <div class='lg:w-2/3'>
-                    <blockquote class='text-lg md:text-xl text-base-content/90 leading-relaxed italic'>
+                  <div class='md:w-2/3 lg:w-2/3 text-center md:text-left'>
+                    <blockquote class='text-base sm:text-lg md:text-xl text-base-content/90 leading-relaxed italic'>
                       "{testimonial.content}"
                     </blockquote>
                   </div>
@@ -115,6 +122,7 @@ import { testimonials } from '../../content.json';
       });
     }
 
+    // Handle avatar clicks
     avatars.forEach((el, idx) => {
       el.addEventListener('click', () => {
         setActive(idx);
