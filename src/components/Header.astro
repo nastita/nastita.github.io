@@ -1,4 +1,6 @@
 ---
+import content from '../../content.json';
+
 const menuItems = [
   { name: 'Main', href: '#main' },
   { name: 'Exp', href: '#exp' },
@@ -6,10 +8,27 @@ const menuItems = [
   { name: 'Kudos', href: '#kudos' },
 ];
 
-// Update these URLs with your actual ones
-const githubUrl = 'https://github.com/nastita';
-const linkedinUrl = 'https://linkedin.com/in/nastita';
-const portfolioPath = '/resume-sacco.pdf';
+const socialLinks = [
+  { 
+    name: 'GitHub', 
+    url: content.contact.github, 
+    icon: '/icons/github.svg',
+    ariaLabel: 'GitHub Profile'
+  },
+  { 
+    name: 'LinkedIn', 
+    url: content.contact.linkedin, 
+    icon: '/icons/linkedin.svg',
+    ariaLabel: 'LinkedIn Profile'
+  },
+  { 
+    name: 'Resume', 
+    url: content.contact.resume, 
+    icon: '/icons/resume.svg',
+    ariaLabel: 'Download Resume',
+    download: true
+  }
+];
 ---
 
 <!-- Top progress bar -->
@@ -26,124 +45,171 @@ const portfolioPath = '/resume-sacco.pdf';
 
 <header
   id='header'
-  class='fixed top-0 left-0 w-full z-[100] flex justify-center pointer-events-none'
+  class='fixed top-0 right-0 w-full z-[100] flex justify-center pointer-events-none'
 >
-  <nav
-    id='nav-menu'
-    class='bg-base-200 rounded-2xl shadow-lg flex flex-row justify-center items-center gap-4 px-6 py-4 nav-responsive pointer-events-auto min-w-fit'
+  <!-- Small screen dropdown button (below 640px) -->
+  <div class='sm:hidden fixed top-5 left-5 z-[110] pointer-events-auto'>
+    <div class='dropdown dropdown-start'>
+      <div
+        tabindex='0'
+        role='button'
+        class='btn btn-circle btn-ghost bg-base-200 shadow-lg'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='h-5 w-5'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M4 6h16M4 12h8m-8 6h16'></path>
+        </svg>
+      </div>
+      <ul
+        tabindex='0'
+        class='menu dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+      >
+        {
+          menuItems.map((item, idx) => (
+            <li>
+              <a
+                href={item.href}
+                class='menu-item text-base uppercase nav-link hover:text-primary text-neutral-content'
+                data-menu-index={idx}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pill navbar for 640px and above -->
+  <div
+    class='hidden sm:flex bg-base-200 rounded-2xl shadow-lg pointer-events-auto min-w-fit'
     style='margin-top:1.2rem;'
   >
-    <div class='flex flex-row gap-4'>
+    <ul class='menu menu-horizontal px-2'>
       {
         menuItems.map((item, idx) => (
-          <a
-            href={item.href}
-            class={`menu-item text-base uppercase nav-link hover:text-primary text-neutral-content relative hover:scale-105 transition-transform duration-200`}
-            data-menu-index={idx}
-          >
-            {item.name}
-          </a>
+          <li>
+            <a
+              href={item.href}
+              class='menu-item text-base uppercase nav-link hover:text-primary text-neutral-content hover:scale-105 transition-transform duration-200'
+              data-menu-index={idx}
+            >
+              {item.name}
+            </a>
+          </li>
         ))
       }
-    </div>
-    <div
-      class='flex items-center gap-4 ml-4 border-l border-base-content/20 pl-4 nav-icons'
-    >
-      <a
-        href={githubUrl}
-        target='_blank'
-        rel='noopener noreferrer'
-        class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
-        aria-label='GitHub Profile'
-        data-tip='GitHub Profile'
-      >
-        <img
-          src='/icons/github.svg'
-          alt='GitHub'
-          class='h-6 w-6 flex-shrink-0 brightness-0 invert'
-        />
-      </a>
-      <a
-        href={linkedinUrl}
-        target='_blank'
-        rel='noopener noreferrer'
-        class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
-        aria-label='LinkedIn Profile'
-        data-tip='LinkedIn Profile'
-      >
-        <img
-          src='/icons/linkedin.svg'
-          alt='LinkedIn'
-          class='h-6 w-6 flex-shrink-0 brightness-0 invert'
-        />
-      </a>
-      <a
-        href={portfolioPath}
-        class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
-        aria-label='Download Resume'
-        data-tip='Download Resume'
-        download
-      >
-        <img
-          src='/icons/resume.svg'
-          alt='Resume'
-          class='h-6 w-6 flex-shrink-0 brightness-0 invert'
-        />
-      </a>
-    </div>
-  </nav>
-</header>
+    </ul>
 
-<script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    <ul class='menu menu-horizontal border-l border-base-content/20 px-2'>
+      {
+        socialLinks.map((social) => (
+          <li>
+            <a
+              href={social.url}
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-white hover:text-primary transition-all duration-200 hover:scale-105 tooltip tooltip-bottom tooltip-primary'
+              aria-label={social.ariaLabel}
+              data-tip={social.ariaLabel}
+              download={social.download}
+            >
+              <img
+                src={social.icon}
+                alt={social.name}
+                class='h-6 w-6 flex-shrink-0 brightness-0 invert'
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
-  gsap.registerPlugin(ScrollTrigger);
+  <!-- Social links for small screens - always visible -->
+  <div class='sm:hidden fixed top-5 right-5 z-[110] pointer-events-auto flex gap-2'>
+    {
+      socialLinks.map((social) => (
+        <a
+          href={social.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          class='btn btn-circle btn-ghost bg-base-200 shadow-lg text-white hover:text-primary transition-all duration-200'
+          aria-label={social.ariaLabel}
+          download={social.download}
+        >
+          <img
+            src={social.icon}
+            alt={social.name}
+            class='h-5 w-5 flex-shrink-0 brightness-0 invert'
+          />
+        </a>
+      ))
+    }
+  </div>
 
-  // Progress bar scroll indicator
-  const sectionIds = ['main', 'exp', 'skills', 'kudos'];
-  const navLinks = document.querySelectorAll('.nav-link');
-  const progressBar = document.getElementById('progress-bar');
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  if (progressBar) {
-    // Create ScrollTrigger for overall page progress
-    ScrollTrigger.create({
-      trigger: 'body',
-      start: 'top top',
-      end: 'bottom bottom',
-      onUpdate: (self) => {
-        // Calculate overall scroll progress (0 to 1)
-        const scrollProgress = self.progress;
+      gsap.registerPlugin(ScrollTrigger);
 
-        // Update progress bar width
-        gsap.set(progressBar, {
-          width: `${scrollProgress * 100}%`,
-        });
+      // Progress bar scroll indicator
+      const sectionIds = ['main', 'exp', 'skills', 'kudos'];
+      const navLinks = document.querySelectorAll('.nav-link');
+      const progressBar = document.getElementById('progress-bar');
 
-        // Also determine current active section for menu highlighting
-        let currentSection = 0;
+      if (progressBar) {
+        // Create ScrollTrigger for overall page progress
+        ScrollTrigger.create({
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: (self) => {
+            // Calculate overall scroll progress (0 to 1)
+            const scrollProgress = self.progress;
 
-        for (let i = 0; i < sectionIds.length; i++) {
-          const section = document.getElementById(sectionIds[i]);
-          if (section) {
-            const rect = section.getBoundingClientRect();
-            // Section is active if it's prominently in the viewport (top portion)
-            if (rect.top <= 200 && rect.bottom > 200) {
-              currentSection = i;
-              break;
+            // Update progress bar width
+            gsap.set(progressBar, {
+              width: `${scrollProgress * 100}%`,
+            });
+
+            // Also determine current active section for menu highlighting
+            let currentSection = 0;
+
+            for (let i = 0; i < sectionIds.length; i++) {
+              const section = document.getElementById(sectionIds[i]);
+              if (section) {
+                const rect = section.getBoundingClientRect();
+                // Section is active if it's prominently in the viewport (top portion)
+                if (rect.top <= 200 && rect.bottom > 200) {
+                  currentSection = i;
+                  break;
+                }
+              }
             }
-          }
-        }
 
-        // Update active link states
-        navLinks.forEach((link, idx) => {
-          if (idx === currentSection) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
+            // Update active link states
+            navLinks.forEach((link, idx) => {
+              if (idx === currentSection) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          },
         });
-      },
-    });
-  }
-</script>
+      }
+    </script>
+  </div>
+</header>
