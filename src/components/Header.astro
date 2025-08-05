@@ -53,7 +53,7 @@ const socialLinks = [
       <div
         tabindex='0'
         role='button'
-        class='btn btn-circle btn-ghost bg-base-200 shadow-lg'
+        class='btn btn-circle btn-ghost liquid-glass shadow-lg'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -71,7 +71,7 @@ const socialLinks = [
       </div>
       <ul
         tabindex='0'
-        class='menu dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+        class='menu dropdown-content liquid-glass rounded-box z-[1] mt-3 w-52 p-2 shadow'
       >
         {
           menuItems.map((item, idx) => (
@@ -90,9 +90,9 @@ const socialLinks = [
     </div>
   </div>
 
-  <!-- Pill navbar for 640px and above -->
+  <!-- Pill navbar for 640px and above with liquid glass effect -->
   <div
-    class='hidden sm:flex bg-base-200 rounded-2xl shadow-lg pointer-events-auto min-w-fit'
+    class='hidden sm:flex liquid-glass rounded-2xl pointer-events-auto min-w-fit'
     style='margin-top:1.2rem;'
   >
     <ul class='menu menu-horizontal px-2'>
@@ -144,7 +144,7 @@ const socialLinks = [
           href={social.url}
           target='_blank'
           rel='noopener noreferrer'
-          class='btn btn-circle btn-ghost bg-base-200 shadow-lg text-white hover:text-primary transition-all duration-200'
+          class='btn btn-circle btn-ghost liquid-glass shadow-lg text-white hover:text-primary transition-all duration-200'
           aria-label={social.ariaLabel}
           download={social.download}
         >
@@ -157,6 +157,46 @@ const socialLinks = [
       ))
     }
   </div>
+
+
+<style>
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    transition: all 0.3s ease;
+  }
+
+  .liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .liquid-glass {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    }
+    
+    .liquid-glass:hover {
+      background: rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    }
+  }
+</style>
 
     <script>
       import gsap from 'gsap';
