@@ -9,25 +9,25 @@ const menuItems = [
 ];
 
 const socialLinks = [
-  { 
-    name: 'GitHub', 
-    url: content.contact.github, 
+  {
+    name: 'GitHub',
+    url: content.contact.github,
     icon: '/icons/github.svg',
-    ariaLabel: 'GitHub Profile'
+    ariaLabel: 'GitHub Profile',
   },
-  { 
-    name: 'LinkedIn', 
-    url: content.contact.linkedin, 
+  {
+    name: 'LinkedIn',
+    url: content.contact.linkedin,
     icon: '/icons/linkedin.svg',
-    ariaLabel: 'LinkedIn Profile'
+    ariaLabel: 'LinkedIn Profile',
   },
-  { 
-    name: 'Resume', 
-    url: content.contact.resume, 
+  {
+    name: 'Resume',
+    url: content.contact.resume,
     icon: '/icons/resume.svg',
     ariaLabel: 'Download Resume',
-    download: true
-  }
+    download: true,
+  },
 ];
 ---
 
@@ -137,7 +137,9 @@ const socialLinks = [
   </div>
 
   <!-- Social links for small screens - always visible -->
-  <div class='sm:hidden fixed top-5 right-5 z-[110] pointer-events-auto flex gap-2'>
+  <div
+    class='sm:hidden fixed top-5 right-5 z-[110] pointer-events-auto flex gap-2'
+  >
     {
       socialLinks.map((social) => (
         <a
@@ -158,98 +160,96 @@ const socialLinks = [
     }
   </div>
 
-
-<style>
-  .liquid-glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.1),
-      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    transition: all 0.3s ease;
-  }
-
-  .liquid-glass:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-1px);
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.15),
-      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  }
-
-  @media (prefers-color-scheme: dark) {
+  <style>
     .liquid-glass {
-      background: rgba(0, 0, 0, 0.2);
-      border-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-    }
-    
-    .liquid-glass:hover {
-      background: rgba(0, 0, 0, 0.3);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.4),
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      transition: all 0.3s ease;
     }
-  }
-</style>
 
-    <script>
-      import gsap from 'gsap';
-      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    .liquid-glass:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
 
-      gsap.registerPlugin(ScrollTrigger);
+    @media (prefers-color-scheme: dark) {
+      .liquid-glass {
+        background: rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+      }
 
-      // Progress bar scroll indicator
-      const sectionIds = ['main', 'exp', 'skills', 'kudos'];
-      const navLinks = document.querySelectorAll('.nav-link');
-      const progressBar = document.getElementById('progress-bar');
+      .liquid-glass:hover {
+        background: rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.4),
+          0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      }
+    }
+  </style>
 
-      if (progressBar) {
-        // Create ScrollTrigger for overall page progress
-        ScrollTrigger.create({
-          trigger: 'body',
-          start: 'top top',
-          end: 'bottom bottom',
-          onUpdate: (self) => {
-            // Calculate overall scroll progress (0 to 1)
-            const scrollProgress = self.progress;
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-            // Update progress bar width
-            gsap.set(progressBar, {
-              width: `${scrollProgress * 100}%`,
-            });
+    gsap.registerPlugin(ScrollTrigger);
 
-            // Also determine current active section for menu highlighting
-            let currentSection = 0;
+    // Progress bar scroll indicator
+    const sectionIds = ['main', 'exp', 'skills', 'kudos'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    const progressBar = document.getElementById('progress-bar');
 
-            for (let i = 0; i < sectionIds.length; i++) {
-              const section = document.getElementById(sectionIds[i]);
-              if (section) {
-                const rect = section.getBoundingClientRect();
-                // Section is active if it's prominently in the viewport (top portion)
-                if (rect.top <= 200 && rect.bottom > 200) {
-                  currentSection = i;
-                  break;
-                }
+    if (progressBar) {
+      // Create ScrollTrigger for overall page progress
+      ScrollTrigger.create({
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom bottom',
+        onUpdate: (self) => {
+          // Calculate overall scroll progress (0 to 1)
+          const scrollProgress = self.progress;
+
+          // Update progress bar width
+          gsap.set(progressBar, {
+            width: `${scrollProgress * 100}%`,
+          });
+
+          // Also determine current active section for menu highlighting
+          let currentSection = 0;
+
+          for (let i = 0; i < sectionIds.length; i++) {
+            const section = document.getElementById(sectionIds[i]);
+            if (section) {
+              const rect = section.getBoundingClientRect();
+              // Section is active if it's prominently in the viewport (top portion)
+              if (rect.top <= 200 && rect.bottom > 200) {
+                currentSection = i;
+                break;
               }
             }
+          }
 
-            // Update active link states
-            navLinks.forEach((link, idx) => {
-              if (idx === currentSection) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            });
-          },
-        });
-      }
-    </script>
-  </div>
+          // Update active link states
+          navLinks.forEach((link, idx) => {
+            if (idx === currentSection) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        },
+      });
+    }
+  </script>
 </header>
