@@ -6,10 +6,14 @@ const { technologies } = content;
 <section id='skills' class='w-full py-24 md:py-32 bg-base-100'>
   <div class='container mx-auto px-4 sm:px-6 lg:px-8'>
     <header class='max-w-3xl mb-16 md:mb-24'>
-      <p class='text-sm font-semibold uppercase tracking-wider text-base-content/70 mb-4'>
+      <p
+        class='text-sm font-semibold uppercase tracking-wider text-base-content/70 mb-4'
+      >
         Expertise
       </p>
-      <h2 class='text-4xl md:text-5xl font-bold tracking-tight mb-8 text-base-content'>
+      <h2
+        class='text-4xl md:text-5xl font-bold tracking-tight mb-8 text-base-content'
+      >
         Technical Skills
       </h2>
       <p class='text-lg text-base-content/80'>
@@ -47,7 +51,7 @@ const { technologies } = content;
   import { horizontalLoop } from '../scripts/horizontalLoop';
   import { gsap } from 'gsap';
 
-  let loopInstance = null;
+  let loopInstance: gsap.core.Timeline | null = null;
 
   function initializeLoop() {
     const scroller = document.getElementById('tech-loop');
@@ -57,11 +61,11 @@ const { technologies } = content;
         loopInstance.kill();
         loopInstance = null;
       }
-      
+
       // Reset all transforms on items before reinitializing
       const items = Array.from(scroller.children);
       gsap.set(items, { clearProps: 'all' });
-      
+
       // Small delay to ensure DOM has updated
       setTimeout(() => {
         loopInstance = horizontalLoop(items, {
@@ -78,7 +82,7 @@ const { technologies } = content;
   document.addEventListener('DOMContentLoaded', initializeLoop);
 
   // Reinitialize on resize with debouncing
-  let resizeTimeout;
+  let resizeTimeout: string | number | NodeJS.Timeout | undefined;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
